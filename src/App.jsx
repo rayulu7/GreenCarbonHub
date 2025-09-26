@@ -1,7 +1,11 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
+import Navbar from './components/Navbar/Navbar';
+import Hero from './components/Home/Home';
 import Services from './components/Services/Services';
+import WhyGCHSection from './components/GCH/WhyGCH';
+import Contact from './components/Contact/Contact';
 import FooterContent from './components/Footer/Footer';
 
 const CONTACT_ICONS = [
@@ -47,12 +51,19 @@ const ContactIcon = ({ icon: Icon, href, bg, label, target }) => (
 const App = () => {
   return (
     <BrowserRouter>
-      <FloatingContactIcons />
-      <Routes>
-        <Route path="/" element={<Services />} />
-        <Route path="/services" element={<Services />} />
-      </Routes>
+      <Navbar />
+      <Hero />
+      <section id="services">
+        <Services />
+      </section>
+      <section id="why-gch">
+        <WhyGCHSection />
+      </section>
+      <section id="contact-us">
+        <Contact />
+      </section>
       <FooterContent />
+      <FloatingContactIcons />
     </BrowserRouter>
   );
 };

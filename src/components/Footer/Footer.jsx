@@ -11,8 +11,8 @@ const FooterContent = () => {
             <div className="mb-6">
               <h2 className="text-2xl font-bold mb-2">
                 <span className="text-green-400">Green</span>
-                <span className="text-orange-500">Carbon</span>
-                <span className="text-green-400">Hub</span>
+                <span className="text-green-400">Carbon</span>
+                <span className="text-orange-500">Hub</span>
               </h2>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
@@ -91,19 +91,27 @@ const FooterContent = () => {
               © 2024 <span className="text-orange-500">GreenCarbonHub</span>. All Rights Reserved.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center hover:opacity-80 transition">
+              <a href="#" className="group w-8 h-8 rounded flex items-center justify-center bg-blue-600 transition">
                 <Facebook className="w-4 h-4 text-white" />
+                <span className="sr-only">Facebook</span>
               </a>
-              <a href="#" className="w-8 h-8 bg-pink-500 rounded flex items-center justify-center hover:opacity-80 transition">
+              <a href="#" className="group w-8 h-8 rounded flex items-center justify-center bg-pink-500 transition">
                 <Instagram className="w-4 h-4 text-white" />
+                <span className="sr-only">Instagram</span>
               </a>
-              <a href="#" className="w-8 h-8 bg-black rounded flex items-center justify-center hover:opacity-80 transition">
+              <a href="#" className="group w-8 h-8 rounded flex items-center justify-center bg-black transition">
                 <Twitter className="w-4 h-4 text-white" />
+                <span className="sr-only">Twitter</span>
               </a>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Hover green background while keeping icons white */}
+      <style>{`
+        .group:hover { background-color: #16a34a !important; }
+      `}</style>
     </footer>
   );
 };
