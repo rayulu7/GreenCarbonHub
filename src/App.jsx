@@ -1,85 +1,117 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
-import Navbar from './components/Navbar/Navbar';
-import Hero from './components/Home/Home';
-import Services from './components/Services/Services';
-import WhyGCHSection from './components/GCH/WhyGCH';
-import Contact from './components/Contact/Contact';
-import FooterContent from './components/Footer/Footer';
-import WaterManagementPage from './components/pages/WaterManagement/WaterManagementPage';
-import SolarInstallationPage from './components/pages/SolarInstallation/SolarInstallationPage';
-import BioMethanationPage from './components/pages/BioMethanation/BioMethanationPage';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar/Navbar";
+import Hero from "./components/Home/Home";
+import Services from "./components/Services/Services";
+import WhyGCHSection from "./components/GCH/WhyGCH";
+import Contact from "./components/Contact/Contact";
+import Footer from "./components/Footer/Footer";
+import SolarInstallation from "./components/pages/SolarInstallation/SolarInstallation";
+import Residential from "./components/pages/SolarInstallation/Residential";
+import HousingSociety from "./components/pages/SolarInstallation/HousingSociety";
+import IndustrialCommercial from "./components/pages/SolarInstallation/IndustrialCommercial";
+import WaterManagementPage from "./components/pages/WaterManagement/WaterManagementPage";
+import BioMethanationPage from "./components/pages/BioMethanation/BioMethanationPage";
 
-const CONTACT_ICONS = [
-  {
-    icon: FaPhoneAlt,
-    href: 'tel:+1234567890',
-    bg: 'from-blue-600 to-blue-700',
-    label: 'Call Phone'
-  },
-  {
-    icon: FaWhatsapp,
-    href: 'https://wa.me/your-number',
-    bg: 'from-green-500 to-green-600',
-    label: 'WhatsApp',
-    target: '_blank'
-  }
-];
-
-const FloatingContactIcons = () => {
+// Layout Component with Navbar and Footer
+function Layout({ children }) {
   return (
-    <div className="fixed right-2 bottom-4 sm:right-4 sm:bottom-6 md:right-6 md:bottom-8 flex flex-col gap-2 sm:gap-3 z-40">
-      {CONTACT_ICONS.map((item, index) => (
-        <ContactIcon key={index} {...item} />
-      ))}
+    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-blue-50">
+      <Navbar />
+      <div className="pt-20">
+        {children}
+      </div>
+      <Footer />
     </div>
   );
-};
+}
 
-const ContactIcon = ({ icon: Icon, href, bg, label, target }) => (
-  <a
-    href={href}
-    aria-label={label}
-    target={target}
-    rel={target ? 'noopener noreferrer' : undefined}
-    className="group transition-transform duration-300 hover:scale-110"
-  >
-    <div className={`w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-gradient-to-r ${bg} shadow-lg hover:shadow-xl border-2 border-white`}>
-      <Icon className="text-white text-base sm:text-lg md:text-xl" />
-    </div>
-  </a>
-);
-
-const HomePage = () => (
-  <>
-    <Hero />
-    <section id="services">
-      <Services />
-    </section>
-    <section id="why-gch">
-      <WhyGCHSection />
-    </section>
-    <section id="contact-us">
-      <Contact />
-    </section>
-    <FooterContent />
-  </>
-);
-
-const App = () => {
+// Home Page Component
+function HomePage() {
   return (
-    <BrowserRouter>
-      <Navbar />
+    <Layout>
+      <Hero />
+      <section id="services">
+        <Services />
+      </section>
+      <section id="why-gch">
+        <WhyGCHSection />
+      </section>
+      <section id="contact-us">
+        <Contact />
+      </section>
+    </Layout>
+  );
+}
+
+// Solar Installation Page
+function SolarInstallationPage() {
+  return (
+    <Layout>
+      <SolarInstallation />
+    </Layout>
+  );
+}
+
+// Residential Page
+function ResidentialPage() {
+  return (
+    <Layout>
+      <Residential />
+    </Layout>
+  );
+}
+
+// Housing Society Page
+function HousingSocietyPage() {
+  return (
+    <Layout>
+      <HousingSociety />
+    </Layout>
+  );
+}
+
+// Industrial Commercial Page
+function IndustrialCommercialPage() {
+  return (
+    <Layout>
+      <IndustrialCommercial />
+    </Layout>
+  );
+}
+
+// Water Management Page
+function WaterManagementPageComponent() {
+  return (
+    <Layout>
+      <WaterManagementPage />
+    </Layout>
+  );
+}
+
+// Bio Methanation Page
+function BioMethanationPageComponent() {
+  return (
+    <Layout>
+      <BioMethanationPage />
+    </Layout>
+  );
+}
+
+function App() {
+  return (
+    <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/water-management" element={<WaterManagementPage />} />
         <Route path="/solar-installation" element={<SolarInstallationPage />} />
-        <Route path="/bio-methanation" element={<BioMethanationPage />} />
+        <Route path="/water-management" element={<WaterManagementPageComponent />} />
+        <Route path="/bio-methanation" element={<BioMethanationPageComponent />} />
+        <Route path="/residential" element={<ResidentialPage />} />
+        <Route path="/housing-society" element={<HousingSocietyPage />} />
+        <Route path="/industrial-commercial" element={<IndustrialCommercialPage />} />
       </Routes>
-      <FloatingContactIcons />
-    </BrowserRouter>
+    </Router>
   );
-};
+}
 
 export default App;
