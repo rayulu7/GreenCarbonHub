@@ -5,7 +5,7 @@ import GCHBenefits from './GCHBenefits.jsx';
 import FAQ from './FAQ.jsx';
 import OurClients from './OurClients.jsx';
 import { Building, DollarSign, Leaf, Factory, GraduationCap, Pill, Snowflake, Cross, Egg } from "lucide-react";
-import Weprovide from './WeProvide.jsx';
+import Weprovide from './Weprovide.jsx';
 
 /** Reusable cards with original dimensions and padding */
 const TopCard = ({ icon, title, desc }) => (
