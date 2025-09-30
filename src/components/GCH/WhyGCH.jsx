@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Check } from 'lucide-react';
 
 const WhyGCHSection = () => {
@@ -9,10 +9,31 @@ const WhyGCHSection = () => {
     "Get assured returns from sustainable projects"
   ];
 
-  const [activeIndex, setActiveIndex] = useState(null); // tracks hover or touch
+  const [activeIndex, setActiveIndex] = useState(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const sectionRef = useRef(null);
+
+  // Observe scroll into view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setHasAnimated(true); // play animation once
+          observer.disconnect(); // stop observing (keeps it visible)
+        }
+      },
+      { threshold: 0.2 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section
+      ref={sectionRef}
+      className="py-20 bg-gray-50"
+      onMouseEnter={() => setHasAnimated(true)} // also trigger on hover
+    >
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left side - Image */}
@@ -20,13 +41,17 @@ const WhyGCHSection = () => {
             <img 
               src="https://images.pexels.com/photos/9800029/pexels-photo-9800029.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop"
               alt="Sustainable energy landscape with wind turbines and solar panels"
-              className="w-full h-full object-cover animate-fade-in-up" 
+              className={`w-full h-full object-cover transition-all duration-700 
+                ${hasAnimated ? 'animate-fade-in-up opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} 
             />
             <div className="absolute inset-0 bg-gradient-to-t from-green-900/20 to-transparent"></div>
           </div>
 
           {/* Right side - Content */}
-          <div className="animate-fade-in-right">
+          <div className={`
+            transition-all duration-700
+            ${hasAnimated ? 'animate-fade-in-right opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}
+          `}>
             <h2 className="text-5xl font-bold text-gray-800 mb-12">
               Why <span className="text-green-600">GCH</span> ?
             </h2>
@@ -34,14 +59,13 @@ const WhyGCHSection = () => {
             <div className="space-y-6">
               {benefits.map((benefit, index) => {
                 const isActive = activeIndex === index;
-
                 return (
                   <div
                     key={index}
                     className="flex items-center space-x-4 p-4 bg-white rounded-xl shadow-md cursor-pointer transition-all duration-300"
-                    onMouseEnter={() => setActiveIndex(index)} // desktop hover
+                    onMouseEnter={() => setActiveIndex(index)}
                     onMouseLeave={() => setActiveIndex(null)}
-                    onTouchStart={() => setActiveIndex(index)}  // mobile touch
+                    onTouchStart={() => setActiveIndex(index)}
                   >
                     <div className="flex-shrink-0">
                       <div className={`

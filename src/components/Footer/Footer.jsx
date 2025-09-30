@@ -91,15 +91,15 @@ const FooterContent = () => {
               © 2024 <span className="text-orange-500">GreenCarbonHub</span>. All Rights Reserved.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="group w-8 h-8 rounded flex items-center justify-center bg-blue-600 transition">
+              <a href="#" className="footer-group w-8 h-8 rounded flex items-center justify-center bg-blue-600 transition">
                 <Facebook className="w-4 h-4 text-white" />
                 <span className="sr-only">Facebook</span>
               </a>
-              <a href="#" className="group w-8 h-8 rounded flex items-center justify-center bg-pink-500 transition">
+              <a href="#" className="footer-group w-8 h-8 rounded flex items-center justify-center bg-pink-500 transition">
                 <Instagram className="w-4 h-4 text-white" />
                 <span className="sr-only">Instagram</span>
               </a>
-              <a href="#" className="group w-8 h-8 rounded flex items-center justify-center bg-black transition">
+              <a href="#" className="footer-group w-8 h-8 rounded flex items-center justify-center bg-black transition">
                 <Twitter className="w-4 h-4 text-white" />
                 <span className="sr-only">Twitter</span>
               </a>
@@ -110,7 +110,7 @@ const FooterContent = () => {
 
       {/* Hover green background while keeping icons white */}
       <style>{`
-        .group:hover { background-color: #16a34a !important; }
+        .footer-group:hover { background-color: #16a34a !important; }
       `}</style>
     </footer>
   );
