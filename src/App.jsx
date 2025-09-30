@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Home/Home";
@@ -6,6 +6,7 @@ import Services from "./components/Services/Services";
 import WhyGCHSection from "./components/GCH/WhyGCH";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
+import LoadingScreen from "./components/Loading/LoadingScreen";
 import SolarInstallation from "./components/pages/SolarInstallation/SolarInstallation";
 import Residential from "./components/pages/SolarInstallation/Residential";
 import HousingSociety from "./components/pages/SolarInstallation/HousingSociety";
@@ -99,6 +100,21 @@ function BioMethanationPageComponent() {
 }
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading time - you can adjust this duration
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2500); // 2.5 seconds loading screen
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <LoadingScreen />;
+  }
+
   return (
     <Router>
       <Routes>
