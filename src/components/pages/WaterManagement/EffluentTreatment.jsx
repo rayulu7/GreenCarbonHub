@@ -2,34 +2,27 @@ import React from "react";
 
 const Effluenttreatment = () => {
   return (
-    <section className="w-full bg-[#EBF3ED] py-8">
+    <section className="w-full bg-[#EBF3ED] py-8 overflow-x-hidden">
       {/* Responsive outer card */}
-      <div
-        className="max-w-4xl mx-auto rounded-[15px] shadow-xl px-4 md:px-6 pb-8 md:pb-12"
-        style={{ backgroundColor: "#EBF3ED" }}
-      >
+      <div className="max-w-full mx-auto rounded-[15px] shadow-xl px-4 md:px-6 pb-8 md:pb-12 bg-[#EBF3ED]">
         {/* Heading */}
         <h4 className="text-[32px] font-bold text-[#333333] text-center mb-[55px] pt-6">
           Expert Sewage Treatment Plant Services in India
         </h4>
 
         {/* Content Row */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center max-w-full">
           {/* Left: Image */}
-          <div className="flex justify-center lg:justify-start">
+          <div className="flex justify-center lg:justify-start max-w-full">
             <img
               src="/E2.jpeg"
               alt="Expert Effluent Treatment Plant Services in India"
-              className="w-full max-w-md lg:max-w-none rounded shadow-md"
-              style={{
-                height: "auto",
-                objectFit: "cover",
-              }}
+              className="w-full max-w-full h-auto rounded shadow-md object-cover"
             />
           </div>
 
           {/* Right: Description */}
-          <div className="space-y-6">
+          <div className="space-y-6 max-w-full">
             <p className="text-[18px] leading-8 text-justify text-[#333333]">
               Effluent treatment plants (ETP) are playing a crucial role in
               protecting the environment by purifying the industrial wastewater.

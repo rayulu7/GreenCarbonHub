@@ -2,10 +2,10 @@ import React from "react";
 
 const ExpertSewage = () => {
   return (
-    <section className="w-full bg-[#EBF3ED] py-8">
+    <section className="w-full bg-[#EBF3ED] pt-24 pb-8 min-h-[600px]"> {/* added pt-24 */}
       {/* Responsive Container */}
       <div
-        className="max-w-4xl mx-auto rounded-[15px] shadow-xl px-4 md:px-6"
+        className="max-w-6xl mx-auto rounded-[15px] shadow-xl w-full px-4 md:px-6"
         style={{ backgroundColor: "#EBF3ED" }}
       >
         {/* Heading */}
@@ -34,7 +34,7 @@ const ExpertSewage = () => {
               Sewage Treatment Plant or simply called STP, plays a crucial role
               in houses, offices, industries and other public places. Biological
               wastewater consists of micro-organisms, suspended solids,
-              dissolved chemicals, etc. that are harmful to the publicTo stay healthy and comfortable, we need Sewage Treatment Plants
+              dissolved chemicals, etc. that are harmful to the public. To stay healthy and comfortable, we need Sewage Treatment Plants
               with proper maintenance at regular intervals. 
             </p>
             <p className="text-[18px] leading-8 text-justify text-[#333333]">
