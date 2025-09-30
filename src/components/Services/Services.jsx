@@ -16,18 +16,18 @@ const cardData = [
     description: "Offering innovative water and wastewater management solutions to ensure efficient usage and sustainable recycling processes.",
     path: "/water-and-wastewater-management"
   },
-  {
-    image: './bioMethanation.jpg',
-    title: "Bio-Methanation",
-    description: "Convert organic waste into valuable biogas through our efficient and eco-friendly bio-methanation solutions.",
-    path: "/bio-methanation"
-  },
-   {
-    image: './SofaService.jpg',
-    title: "Bio-Methanation",
-    description: "Convert organic waste into valuable biogas through our efficient and eco-friendly bio-methanation solutions.",
-    path: "/bio-methanation"
-  },
+  // {
+  //   image: './bioMethanation.jpg',
+  //   title: "Bio-Methanation",
+  //   description: "Convert organic waste into valuable biogas through our efficient and eco-friendly bio-methanation solutions.",
+  //   path: "/bio-methanation"
+  // },
+  //  {
+  //   image: './SofaService.jpg',
+  //   title: "Bio-Methanation",
+  //   description: "Convert organic waste into valuable biogas through our efficient and eco-friendly bio-methanation solutions.",
+  //   path: "/bio-methanation"
+  // },
 //   {
 //     image: './ChairService.jpg',
 //     title: "Chair Cleaning",
@@ -99,14 +99,14 @@ const Services = () => (
           Our Services
         </h2>
         <div className="flex flex-col gap-6 sm:gap-8 md:gap-10">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 place-items-center">
-            {cardData.slice(0, 3).map((card, idx) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6 place-items-center">
+            {cardData.slice(0, 2).map((card, idx) => (
               <ServiceCards key={idx} {...card} />
             ))}
           </div>
           <div className="grid grid-cols-1 gap-4 sm:gap-6 place-items-center">
-            {cardData.slice(3, 4).map((card, idx) => (
-              <ServiceCards key={idx + 3} {...card} />
+            {cardData.slice(2, 4).map((card, idx) => (
+              <ServiceCards key={idx + 2} {...card} />
             ))}
           </div>
         </div>
