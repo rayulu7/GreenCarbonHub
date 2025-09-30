@@ -64,13 +64,13 @@ const Navbar = () => {
                     href="#"
                     className="block px-4 py-2 text-black hover:text-orange-500 transition-colors"
                   >
-                    Solar Panels
+                    Solar Installation
                   </a>
                   <a
-                    href="#"
+                    href="/water-management"
                     className="block px-4 py-2 text-black hover:text-orange-500 transition-colors"
                   >
-                    Wind Turbines
+                    Water & Wastewater Management
                   </a>
                   <a
                     href="#"
@@ -78,6 +78,7 @@ const Navbar = () => {
                   >
                     Bio-Methanation
                   </a>
+                  
                 </div>
               </div>
             )}

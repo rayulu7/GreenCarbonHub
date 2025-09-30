@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Home/Home';
@@ -7,6 +7,7 @@ import Services from './components/Services/Services';
 import WhyGCHSection from './components/GCH/WhyGCH';
 import Contact from './components/Contact/Contact';
 import FooterContent from './components/Footer/Footer';
+import WaterManagementPage from './components/pages/WaterManagement/WaterManagementPage';
 
 const CONTACT_ICONS = [
   {
@@ -48,21 +49,30 @@ const ContactIcon = ({ icon: Icon, href, bg, label, target }) => (
   </a>
 );
 
+const HomePage = () => (
+  <>
+    <Hero />
+    <section id="services">
+      <Services />
+    </section>
+    <section id="why-gch">
+      <WhyGCHSection />
+    </section>
+    <section id="contact-us">
+      <Contact />
+    </section>
+    <FooterContent />
+  </>
+);
+
 const App = () => {
   return (
     <BrowserRouter>
       <Navbar />
-      <Hero />
-      <section id="services">
-        <Services />
-      </section>
-      <section id="why-gch">
-        <WhyGCHSection />
-      </section>
-      <section id="contact-us">
-        <Contact />
-      </section>
-      <FooterContent />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/water-management" element={<WaterManagementPage />} />
+      </Routes>
       <FloatingContactIcons />
     </BrowserRouter>
   );
