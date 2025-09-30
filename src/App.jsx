@@ -8,6 +8,8 @@ import WhyGCHSection from './components/GCH/WhyGCH';
 import Contact from './components/Contact/Contact';
 import FooterContent from './components/Footer/Footer';
 import WaterManagementPage from './components/pages/WaterManagement/WaterManagementPage';
+import SolarInstallationPage from './components/pages/SolarInstallation/SolarInstallationPage';
+import BioMethanationPage from './components/pages/BioMethanation/BioMethanationPage';
 
 const CONTACT_ICONS = [
   {
@@ -72,6 +74,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/water-management" element={<WaterManagementPage />} />
+        <Route path="/solar-installation" element={<SolarInstallationPage />} />
+        <Route path="/bio-methanation" element={<BioMethanationPage />} />
       </Routes>
       <FloatingContactIcons />
     </BrowserRouter>

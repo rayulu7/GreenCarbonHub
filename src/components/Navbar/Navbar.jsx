@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { Link } from "react-router-dom";
 import { ChevronDown, Menu, X } from "lucide-react";
 
 const Navbar = () => {
@@ -40,12 +41,12 @@ const Navbar = () => {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center space-x-6">
-          <a
-            href="#"
+          <Link
+            to="/"
             className="text-green-600 hover:text-orange-500 transition-colors font-medium"
           >
             Home
-          </a>
+          </Link>
 
           {/* Installation Dropdown */}
           <div
@@ -60,42 +61,42 @@ const Navbar = () => {
             {isDropdownOpen && (
               <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-50">
                 <div className="py-2">
-                  <a
-                    href="#"
+                  <Link
+                    to="/solar-installation"
                     className="block px-4 py-2 text-black hover:text-orange-500 transition-colors"
                   >
                     Solar Installation
-                  </a>
-                  <a
-                    href="/water-management"
+                  </Link>
+                  <Link
+                    to="/water-management"
                     className="block px-4 py-2 text-black hover:text-orange-500 transition-colors"
                   >
                     Water & Wastewater Management
-                  </a>
-                  <a
-                    href="#"
+                  </Link>
+                  <Link
+                    to="/bio-methanation"
                     className="block px-4 py-2 text-black hover:text-orange-500 transition-colors"
                   >
                     Bio-Methanation
-                  </a>
-                  
+                  </Link>
+
                 </div>
               </div>
             )}
           </div>
 
-          <a
-            href="#"
+          <Link
+            to="/#why-gch"
             className="text-green-600 hover:text-orange-500 transition-colors font-medium"
           >
             About Us
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/#contact-us"
             className="text-green-600 hover:text-orange-500 transition-colors font-medium"
           >
             Contact Us
-          </a>
+          </Link>
         </nav>
 
         {/* Login + Mobile Toggle */}
@@ -121,12 +122,12 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden mt-4 px-4 pb-4 space-y-3 bg-white rounded-lg shadow-lg">
-          <a
-            href="#"
+          <Link
+            to="/"
             className="block text-green-600 hover:text-orange-500 transition-colors font-medium"
           >
             Home
-          </a>
+          </Link>
 
           {/* Mobile Dropdown */}
           <div>
@@ -143,40 +144,40 @@ const Navbar = () => {
             </button>
             {isDropdownOpen && (
               <div className="mt-2 pl-4 space-y-2">
-                <a
-                  href="#"
+                <Link
+                  to="/solar-installation"
                   className="block text-black hover:text-orange-500 transition-colors"
                 >
-                  Solar Panels
-                </a>
-                <a
-                  href="#"
+                  Solar Installation
+                </Link>
+                <Link
+                  to="/water-management"
                   className="block text-black hover:text-orange-500 transition-colors"
                 >
-                  Wind Turbines
-                </a>
-                <a
-                  href="#"
+                  Water & Wastewater Management
+                </Link>
+                <Link
+                  to="/bio-methanation"
                   className="block text-black hover:text-orange-500 transition-colors"
                 >
                   Bio-Methanation
-                </a>
+                </Link>
               </div>
             )}
           </div>
 
-          <a
-            href="#"
+          <Link
+            to="/#why-gch"
             className="block text-green-600 hover:text-orange-500 transition-colors font-medium"
           >
             About Us
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/#contact-us"
             className="block text-green-600 hover:text-orange-500 transition-colors font-medium"
           >
             Contact Us
-          </a>
+          </Link>
 
           <button className="w-full bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 shadow-md hover:shadow-lg">
             Login
