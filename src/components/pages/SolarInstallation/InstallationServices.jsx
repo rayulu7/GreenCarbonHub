@@ -9,14 +9,14 @@ const InstallationServices = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
+          if (entry.isIntersecting && !isVisible) {
             setIsVisible(true);
           }
         });
       },
       {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.2,
+        rootMargin: '0px 0px -100px 0px'
       }
     );
 
@@ -29,7 +29,7 @@ const InstallationServices = () => {
         observer.unobserve(sectionRef.current);
       }
     };
-  }, []);
+  }, [isVisible]);
 
   const services = [
     {
@@ -70,24 +70,24 @@ const InstallationServices = () => {
   ];
 
   return (
-    <div ref={sectionRef} className="bg-gray-50 py-16 px-4">
+    <div ref={sectionRef} className="bg-gray-50 py-8 md:py-16 px-4 md:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold text-gray-800 text-center mb-12">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 text-center mb-8 md:mb-12">
           INSTALLATION SERVICES
         </h2>
         
-        <div className="flex flex-wrap justify-center gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 justify-items-center">
           {services.map((service, index) => (
             <div 
               key={service.id}
-              className={`service-card group bg-white rounded-lg shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 flex flex-col ${isVisible ? 'animate' : ''}`}
+              className={`service-card group bg-white rounded-lg shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 flex flex-col w-full max-w-sm lg:max-w-none ${isVisible ? 'animate' : ''}`}
               style={{ 
-                width: '340px', 
-                height: '580px',
-                animationDelay: `${index * 0.4}s`
+                width: '100%',
+                maxWidth: '340px',
+                height: '580px'
               }}
             >
-              <div className="relative" style={{ width: '340px', height: '340px' }}>
+              <div className="relative w-full h-80 md:h-80 lg:h-80">
                 <img 
                   src={service.image}
                   alt={`${service.title} Solar Installation`}
@@ -100,14 +100,14 @@ const InstallationServices = () => {
                   {service.icon}
                 </div>
               </div>
-              <div className="p-4 relative flex-grow flex flex-col justify-end" style={{ paddingLeft: '15px', paddingRight: '15px', paddingBottom: '60px' }}>
-                <h3 className="text-2xl font-bold text-gray-800 text-center mb-6">
+              <div className="p-4 md:p-6 relative flex-grow flex flex-col justify-end">
+                <h3 className="text-xl md:text-2xl font-bold text-gray-800 text-center mb-4 md:mb-6">
                   {service.title}
                 </h3>
                 <div className="text-center">
                   <Link 
                     to={service.link}
-                    className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105"
+                    className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-2 md:py-3 px-6 md:px-8 rounded-full transition-all duration-300 transform hover:scale-105 text-sm md:text-base"
                   >
                     Click Here
                   </Link>

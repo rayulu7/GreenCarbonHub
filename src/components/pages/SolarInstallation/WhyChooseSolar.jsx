@@ -29,18 +29,18 @@ const WhyChooseSolar = () => {
   ];
 
   return (
-    <div className="bg-gray-50 py-16 px-4">
+    <div className="bg-gray-50 py-8 md:py-12 lg:py-16 px-4 md:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold text-gray-800 text-center mb-12">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 text-center mb-8 md:mb-10 lg:mb-12">
           Why Choose Solar Energy?
         </h2>
         
-        <div className="flex flex-wrap justify-center gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 justify-items-center">
           {benefits.map((benefit) => (
             <div 
               key={benefit.id}
-              className="relative overflow-hidden rounded-lg shadow-lg group cursor-pointer" 
-              style={{ width: '379.99px', height: '349px' }}
+              className="relative overflow-hidden rounded-lg shadow-lg group cursor-pointer w-full max-w-sm lg:max-w-none" 
+              style={{ height: '280px', maxHeight: '349px' }}
             >
               <div 
                 className="w-full h-full bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
@@ -51,14 +51,14 @@ const WhyChooseSolar = () => {
                 }}
               >
                 <div className={`absolute inset-0 ${benefit.bgColor} bg-opacity-60 flex items-center justify-center`}>
-                  <h3 className="text-white text-2xl font-bold text-center">{benefit.title}</h3>
+                  <h3 className="text-white text-lg sm:text-xl lg:text-2xl font-bold text-center px-4">{benefit.title}</h3>
                 </div>
               </div>
               
               {/* Popup that slides from bottom */}
-              <div className={`absolute inset-x-0 bottom-0 ${benefit.popupColor} text-white p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out`}>
-                <h4 className="font-bold text-lg mb-2">{benefit.title}</h4>
-                <p className="text-sm leading-relaxed">
+              <div className={`absolute inset-x-0 bottom-0 ${benefit.popupColor} text-white p-4 sm:p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out`}>
+                <h4 className="font-bold text-base sm:text-lg mb-2">{benefit.title}</h4>
+                <p className="text-xs sm:text-sm leading-relaxed">
                   {benefit.description}
                 </p>
               </div>

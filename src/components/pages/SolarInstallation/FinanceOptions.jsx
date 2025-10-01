@@ -65,20 +65,22 @@ export default function FinanceOptions() {
   }, []);
 
   return (
-    <section className={`w-full bg-[#3A954F] pt-[100px] pb-[70px] transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+    <section className={`w-full bg-[#3A954F] py-12 md:py-16 lg:py-20 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       {/* Container */}
-      <div className="mx-auto max-w-[1440px] px-[15px] mx-[120px]">
+      <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
         {/* Features Grid */}
-        <div className="flex justify-between items-center gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8">
           {financeFeatures.map((feature) => (
-            <div key={feature.id} className="text-center transform transition-all duration-300 hover:scale-110 cursor-pointer flex-1">
+            <div key={feature.id} className="text-center transform transition-all duration-300 hover:scale-110 cursor-pointer">
               {/* Icon */}
-              <div className="text-white mb-4 flex justify-center items-center transform transition-transform duration-300 hover:scale-125">
-                {feature.icon}
+              <div className="text-white mb-3 md:mb-4 flex justify-center items-center transform transition-transform duration-300 hover:scale-125">
+                <div className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 flex items-center justify-center">
+                  {feature.icon}
+                </div>
               </div>
               
               {/* Title */}
-              <div className="text-white text-[17px] font-black mb-2 transform transition-transform duration-300 hover:scale-110 whitespace-nowrap">
+              <div className="text-white text-sm md:text-base lg:text-lg font-black mb-2 transform transition-transform duration-300 hover:scale-110">
                 {feature.title}
               </div>
             </div>

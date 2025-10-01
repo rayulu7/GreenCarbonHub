@@ -79,31 +79,31 @@ export default function RepaymentTable({ loanAmount = 50_000, loanTerm = 0.5, in
 
   return (
     <section
-      className={`w-full bg-white pt-[100px] pb-[70px] transition-opacity duration-1000 ${
+      className={`w-full bg-white py-8 md:py-12 lg:py-16 transition-opacity duration-1000 ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
     >
-        <div className="max-w-[1600px] mx-auto px-[15px]" style={{ marginLeft: '120px', marginRight: '120px' }}>
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         {/* Repayment Table */}
         <div className="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
-          <div className="bg-[#008000] text-white px-6 py-4">
-            <h3 className="text-[20px] font-semibold">Repayment Table</h3>
+          <div className="bg-[#008000] text-white px-4 md:px-6 py-3 md:py-4">
+            <h3 className="text-base md:text-lg lg:text-xl font-semibold">Repayment Table</h3>
           </div>
           
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead className="bg-gray-50">
                 <tr>
-                  <th className="px-6 py-4 text-center text-[14px] font-semibold text-[#333333]">
+                  <th className="px-3 md:px-6 py-3 md:py-4 text-center text-xs md:text-sm font-semibold text-[#333333]">
                     YEAR/MONTH
                   </th>
-                  <th className="px-6 py-4 text-center text-[14px] font-semibold text-[#333333]">
+                  <th className="px-3 md:px-6 py-3 md:py-4 text-center text-xs md:text-sm font-semibold text-[#333333]">
                     PRINCIPAL
                   </th>
-                  <th className="px-6 py-4 text-center text-[14px] font-semibold text-[#333333]">
+                  <th className="px-3 md:px-6 py-3 md:py-4 text-center text-xs md:text-sm font-semibold text-[#333333]">
                     INTEREST
                   </th>
-                  <th className="px-6 py-4 text-center text-[14px] font-semibold text-[#333333]">
+                  <th className="px-3 md:px-6 py-3 md:py-4 text-center text-xs md:text-sm font-semibold text-[#333333]">
                     TOTAL PAYMENT
                   </th>
                 </tr>
@@ -117,10 +117,10 @@ export default function RepaymentTable({ loanAmount = 50_000, loanTerm = 0.5, in
                     <React.Fragment key={year}>
                       {/* Year Summary Row */}
                       <tr className="border-b border-gray-200 hover:bg-gray-200 bg-gray-100">
-                        <td className="px-6 py-4 text-center">
+                        <td className="px-3 md:px-6 py-3 md:py-4 text-center">
                           <button
                             onClick={() => toggleYear(year)}
-                            className="flex items-center justify-center text-[14px] font-medium text-[#333333] hover:text-[#008000] mx-auto"
+                            className="flex items-center justify-center text-xs md:text-sm font-medium text-[#333333] hover:text-[#008000] mx-auto"
                           >
                             {year}
                             <span className={`ml-2 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`}>
@@ -128,13 +128,13 @@ export default function RepaymentTable({ loanAmount = 50_000, loanTerm = 0.5, in
                             </span>
                           </button>
                         </td>
-                        <td className="px-6 py-4 text-center text-[14px] text-[#333333]">
+                        <td className="px-3 md:px-6 py-3 md:py-4 text-center text-xs md:text-sm text-[#333333]">
                           {formatCurrency(summary.totalPrincipal)}
                         </td>
-                        <td className="px-6 py-4 text-center text-[14px] text-[#333333]">
+                        <td className="px-3 md:px-6 py-3 md:py-4 text-center text-xs md:text-sm text-[#333333]">
                           {formatCurrency(summary.totalInterest)}
                         </td>
-                        <td className="px-6 py-4 text-center text-[14px] text-[#333333]">
+                        <td className="px-3 md:px-6 py-3 md:py-4 text-center text-xs md:text-sm text-[#333333]">
                           {formatCurrency(summary.totalPayment)}
                         </td>
                       </tr>
@@ -142,16 +142,16 @@ export default function RepaymentTable({ loanAmount = 50_000, loanTerm = 0.5, in
                       {/* Monthly Breakdown Rows */}
                       {isExpanded && yearData.map((month, index) => (
                         <tr key={index} className={`border-b border-gray-100 ${index % 2 === 0 ? 'bg-white' : 'bg-gray-100'}`}>
-                          <td className="px-6 py-3 pl-12 text-center text-[13px] text-[#666666]">
+                          <td className="px-3 md:px-6 py-2 md:py-3 pl-6 md:pl-12 text-center text-xs text-[#666666]">
                             {month.month}
                           </td>
-                          <td className="px-6 py-3 text-center text-[13px] text-[#666666]">
+                          <td className="px-3 md:px-6 py-2 md:py-3 text-center text-xs text-[#666666]">
                             {formatCurrency(month.principal)}
                           </td>
-                          <td className="px-6 py-3 text-center text-[13px] text-[#666666]">
+                          <td className="px-3 md:px-6 py-2 md:py-3 text-center text-xs text-[#666666]">
                             {formatCurrency(month.interest)}
                           </td>
-                          <td className="px-6 py-3 text-center text-[13px] text-[#666666]">
+                          <td className="px-3 md:px-6 py-2 md:py-3 text-center text-xs text-[#666666]">
                             {formatCurrency(month.total)}
                           </td>
                         </tr>

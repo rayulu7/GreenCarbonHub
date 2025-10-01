@@ -36,59 +36,32 @@ const SolarBenefitsCards = () => {
   ];
 
   return (
-    <div className="bg-gray-50 py-16 px-4">
+    <div className="bg-gray-50 py-8 md:py-12 lg:py-16 px-4 md:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold text-gray-800 text-center mb-12">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 text-center mb-8 md:mb-10 lg:mb-12">
           Other Benefits
         </h2>
         
-        {/* Top row - 3 cards */}
-        <div className="flex flex-wrap justify-center gap-8 mb-8">
-          {benefits.slice(0, 3).map((benefit) => (
+        {/* Responsive grid for all cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 justify-items-center">
+          {benefits.map((benefit) => (
             <div 
               key={benefit.id}
-              className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-8 flex flex-col items-center text-center"
-              style={{ width: '379.99px', height: '459.2px' }}
+              className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-6 md:p-8 flex flex-col items-center text-center w-full max-w-sm lg:max-w-none"
+              style={{ minHeight: '400px', height: 'auto' }}
             >
-              <div className="mb-8">
-                {benefit.icon}
+              <div className="mb-6 md:mb-8">
+                <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center">
+                  {benefit.icon}
+                </div>
               </div>
               <h3 
-                className="text-gray-800 font-semibold leading-tight px-4"
-                style={{ fontSize: '18px', marginBottom: '18px' }}
+                className="text-gray-800 font-semibold leading-tight px-2 text-base md:text-lg lg:text-xl mb-4 md:mb-6"
               >
                 {benefit.title}
               </h3>
               <p 
-                className="text-gray-600 leading-relaxed text-justify px-4"
-                style={{ fontSize: '18px' }}
-              >
-                {benefit.description}
-              </p>
-            </div>
-          ))}
-        </div>
-        
-        {/* Bottom row - 2 cards centered */}
-        <div className="flex justify-center gap-8">
-          {benefits.slice(3, 5).map((benefit) => (
-            <div 
-              key={benefit.id}
-              className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-8 flex flex-col items-center text-center"
-              style={{ width: '379.99px', height: '459.2px' }}
-            >
-              <div className="mb-8">
-                {benefit.icon}
-              </div>
-              <h3 
-                className="text-gray-800 font-semibold leading-tight px-4"
-                style={{ fontSize: '18px', marginBottom: '18px' }}
-              >
-                {benefit.title}
-              </h3>
-              <p 
-                className="text-gray-600 leading-relaxed text-justify px-4"
-                style={{ fontSize: '18px' }}
+                className="text-gray-600 leading-relaxed text-justify px-2 text-sm md:text-base lg:text-lg flex-grow"
               >
                 {benefit.description}
               </p>

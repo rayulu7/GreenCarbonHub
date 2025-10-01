@@ -42,26 +42,26 @@ export default function RooftopSolutions() {
   }, []);
 
   return (
-    <section className={`w-full bg-white pt-[100px] pb-[70px] transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+    <section className={`w-full bg-white py-12 md:py-16 lg:py-20 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       {/* Container */}
-      <div className="mx-auto max-w-[1440px] px-[15px] mx-[120px]">
+      <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
         {/* Heading */}
-        <div className="text-center mb-16">
-          <h2 className="text-[32px] font-bold text-[#111827]">
+        <div className="text-center mb-8 md:mb-12 lg:mb-16">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#111827]">
             Our rooftop solutions
           </h2>
         </div>
 
         {/* Content Section */}
-        <div className="flex items-start justify-between gap-8">
+        <div className="flex flex-col lg:flex-row items-start justify-between gap-6 lg:gap-8">
           {/* Left Section - Solution Buttons */}
-          <div className="w-[400px]">
-            <div className="space-y-[15px]">
+          <div className="w-full lg:w-1/3">
+            <div className="space-y-3 md:space-y-4">
               {solutions.map((solution) => (
                 <button
                   key={solution.id}
                   onClick={() => setActiveSolution(solution)}
-                  className={`w-full pt-4 pb-5 px-4 text-left text-[18px] font-bold transition-all duration-200 shadow-[0px_2px_10px_0px_rgba(3,4,28,0.06)] ${
+                  className={`w-full pt-3 pb-4 px-4 text-left text-sm sm:text-base md:text-lg font-bold transition-all duration-200 shadow-[0px_2px_10px_0px_rgba(3,4,28,0.06)] ${
                     activeSolution.id === solution.id
                       ? 'bg-[#3A954F] text-white'
                       : 'bg-white text-[#828282] hover:bg-gray-50'
@@ -75,12 +75,12 @@ export default function RooftopSolutions() {
           </div>
 
           {/* Right Section - Image */}
-          <div className="w-[800px] relative mb-[30px]">
+          <div className="w-full lg:w-2/3 relative">
             <div className="relative">
               <img
                 src={activeSolution.image}
                 alt={activeSolution.name}
-                className="w-full h-[400px] object-cover rounded-lg"
+                className="w-full h-64 sm:h-80 lg:h-[400px] object-cover rounded-lg"
               />
               
               {/* Gradient Overlay */}
@@ -93,9 +93,9 @@ export default function RooftopSolutions() {
             </div>
             
             {/* Image Overlay */}
-            <div className="absolute bottom-8 left-4 text-white p-4 rounded-lg mb-6">
-              <h3 className="text-lg font-bold mb-1">{activeSolution.name}</h3>
-              <p className="text-sm mb-6">{activeSolution.description}</p>
+            <div className="absolute bottom-4 md:bottom-8 left-2 md:left-4 text-white p-2 md:p-4 rounded-lg">
+              <h3 className="text-base md:text-lg font-bold mb-1">{activeSolution.name}</h3>
+              <p className="text-xs md:text-sm">{activeSolution.description}</p>
             </div>
           </div>
         </div>

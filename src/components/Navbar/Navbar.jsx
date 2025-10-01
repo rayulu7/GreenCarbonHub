@@ -25,25 +25,25 @@ const Navbar = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 px-6 py-4 bg-white shadow-md">
+    <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 py-3 md:py-4 bg-white shadow-md">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center space-x-2 sm:space-x-3">
           <div>
-            <h1 className="text-2xl font-bold">
+            <h1 className="text-lg sm:text-xl md:text-2xl font-bold">
               <span className="text-green-600">Green</span>
               <span className="text-orange-500">Carbon</span>
               <span className="text-gray-800">Hub</span>
             </h1>
-            <p className="text-sm text-gray-600">Net-Zero Solutions</p>
+            <p className="text-xs sm:text-sm text-gray-600 hidden sm:block">Net-Zero Solutions</p>
           </div>
         </div>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center space-x-6">
+        <nav className="hidden lg:flex items-center space-x-4 xl:space-x-6">
           <Link
             to="/"
-            className="text-green-600 hover:text-orange-500 transition-colors font-medium"
+            className="text-green-600 hover:text-orange-500 transition-colors font-medium text-sm xl:text-base"
           >
             Home
           </Link>
@@ -54,7 +54,7 @@ const Navbar = () => {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            <button className="flex items-center text-green-600 font-medium bg-transparent focus:outline-none hover:text-orange-500 transition-colors">
+            <button className="flex items-center text-green-600 font-medium bg-transparent focus:outline-none hover:text-orange-500 transition-colors text-sm xl:text-base">
               Installation
               <ChevronDown className="ml-1 w-4 h-4" />
             </button>
@@ -63,19 +63,19 @@ const Navbar = () => {
                 <div className="py-2">
                   <Link
                     to="/solar-installation"
-                    className="block px-4 py-2 text-black hover:text-orange-500 transition-colors"
+                    className="block px-4 py-2 text-black hover:text-orange-500 transition-colors text-sm"
                   >
                     Solar Installation
                   </Link>
                   <Link
                     to="/water-management"
-                    className="block px-4 py-2 text-black hover:text-orange-500 transition-colors"
+                    className="block px-4 py-2 text-black hover:text-orange-500 transition-colors text-sm"
                   >
                     Water & Wastewater Management
                   </Link>
                   <Link
                     to="/bio-methanation"
-                    className="block px-4 py-2 text-black hover:text-orange-500 transition-colors"
+                    className="block px-4 py-2 text-black hover:text-orange-500 transition-colors text-sm"
                   >
                     Bio-Methanation
                   </Link>
@@ -87,33 +87,33 @@ const Navbar = () => {
 
           <Link
             to="/#why-gch"
-            className="text-green-600 hover:text-orange-500 transition-colors font-medium"
+            className="text-green-600 hover:text-orange-500 transition-colors font-medium text-sm xl:text-base"
           >
             About Us
           </Link>
           <Link
             to="/#contact-us"
-            className="text-green-600 hover:text-orange-500 transition-colors font-medium"
+            className="text-green-600 hover:text-orange-500 transition-colors font-medium text-sm xl:text-base"
           >
             Contact Us
           </Link>
         </nav>
 
         {/* Login + Mobile Toggle */}
-        <div className="flex items-center space-x-4">
-          <button className="hidden md:block bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 shadow-md hover:shadow-lg">
+        <div className="flex items-center space-x-2 sm:space-x-4">
+          <button className="hidden lg:block bg-green-600 hover:bg-green-700 text-white px-4 xl:px-6 py-2 rounded-lg font-medium transition-all duration-300 shadow-md hover:shadow-lg text-sm xl:text-base">
             Login
           </button>
 
           {/* Mobile Hamburger */}
           <button
-            className="md:hidden p-2 rounded-md focus:outline-none"
+            className="lg:hidden p-2 rounded-md focus:outline-none"
             onClick={toggleMobileMenu}
           >
             {isMobileMenuOpen ? (
-              <X className="w-6 h-6 text-gray-800" />
+              <X className="w-5 h-5 sm:w-6 sm:h-6 text-gray-800" />
             ) : (
-              <Menu className="w-6 h-6 text-gray-800" />
+              <Menu className="w-5 h-5 sm:w-6 sm:h-6 text-gray-800" />
             )}
           </button>
         </div>
@@ -121,10 +121,11 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden mt-4 px-4 pb-4 space-y-3 bg-white rounded-lg shadow-lg">
+        <div className="lg:hidden mt-4 px-4 pb-4 space-y-3 bg-white rounded-lg shadow-lg">
           <Link
             to="/"
-            className="block text-green-600 hover:text-orange-500 transition-colors font-medium"
+            className="block text-green-600 hover:text-orange-500 transition-colors font-medium text-sm sm:text-base"
+            onClick={() => setIsMobileMenuOpen(false)}
           >
             Home
           </Link>
@@ -132,7 +133,7 @@ const Navbar = () => {
           {/* Mobile Dropdown */}
           <div>
             <button
-              className="flex items-center justify-between w-full text-green-600 font-medium hover:text-orange-500 transition-colors"
+              className="flex items-center justify-between w-full text-green-600 font-medium hover:text-orange-500 transition-colors text-sm sm:text-base"
               onClick={toggleMobileDropdown}
             >
               Installation
@@ -146,19 +147,22 @@ const Navbar = () => {
               <div className="mt-2 pl-4 space-y-2">
                 <Link
                   to="/solar-installation"
-                  className="block text-black hover:text-orange-500 transition-colors"
+                  className="block text-black hover:text-orange-500 transition-colors text-sm sm:text-base"
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Solar Installation
                 </Link>
                 <Link
                   to="/water-management"
-                  className="block text-black hover:text-orange-500 transition-colors"
+                  className="block text-black hover:text-orange-500 transition-colors text-sm sm:text-base"
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Water & Wastewater Management
                 </Link>
                 <Link
                   to="/bio-methanation"
-                  className="block text-black hover:text-orange-500 transition-colors"
+                  className="block text-black hover:text-orange-500 transition-colors text-sm sm:text-base"
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Bio-Methanation
                 </Link>
@@ -168,18 +172,20 @@ const Navbar = () => {
 
           <Link
             to="/#why-gch"
-            className="block text-green-600 hover:text-orange-500 transition-colors font-medium"
+            className="block text-green-600 hover:text-orange-500 transition-colors font-medium text-sm sm:text-base"
+            onClick={() => setIsMobileMenuOpen(false)}
           >
             About Us
           </Link>
           <Link
             to="/#contact-us"
-            className="block text-green-600 hover:text-orange-500 transition-colors font-medium"
+            className="block text-green-600 hover:text-orange-500 transition-colors font-medium text-sm sm:text-base"
+            onClick={() => setIsMobileMenuOpen(false)}
           >
             Contact Us
           </Link>
 
-          <button className="w-full bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 shadow-md hover:shadow-lg">
+          <button className="w-full bg-green-600 hover:bg-green-700 text-white px-4 sm:px-6 py-2 rounded-lg font-medium transition-all duration-300 shadow-md hover:shadow-lg text-sm sm:text-base">
             Login
           </button>
         </div>
