@@ -80,7 +80,7 @@ const InstallationServices = () => {
           {services.map((service, index) => (
             <div 
               key={service.id}
-              className={`service-card group bg-white rounded-lg shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 flex flex-col w-full max-w-sm lg:max-w-none ${isVisible ? 'animate' : ''}`}
+              className={`service-card group bg-white rounded-lg shadow-lg hover:shadow-2xl flex flex-col w-full max-w-sm lg:max-w-none ${isVisible ? 'animate' : ''}`}
               style={{ 
                 width: '100%',
                 maxWidth: '340px',
@@ -100,7 +100,7 @@ const InstallationServices = () => {
                   {service.icon}
                 </div>
               </div>
-              <div className="p-4 md:p-6 relative flex-grow flex flex-col justify-end">
+              <div className="p-4 md:p-6 relative flex-grow flex flex-col justify-center">
                 <h3 className="text-xl md:text-2xl font-bold text-gray-800 text-center mb-4 md:mb-6">
                   {service.title}
                 </h3>

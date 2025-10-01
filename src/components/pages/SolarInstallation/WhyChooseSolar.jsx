@@ -15,7 +15,7 @@ const WhyChooseSolar = () => {
       title: 'Economical Benefits',
       image: 'https://images.pexels.com/photos/9875365/pexels-photo-9875365.jpeg?auto=compress&cs=tinysrgb&w=380&h=349&dpr=1',
       bgColor: 'bg-blue-900',
-      popupColor: 'bg-blue-600',
+      popupColor: 'bg-green-600',
       description: 'Solar energy reduces electricity bills by up to 90%. With government subsidies and net metering, payback period is just 3-5 years with 25+ years of savings.'
     },
     {
@@ -23,7 +23,7 @@ const WhyChooseSolar = () => {
       title: 'National Interest',
       image: 'https://images.pexels.com/photos/9875440/pexels-photo-9875440.jpeg?auto=compress&cs=tinysrgb&w=380&h=349&dpr=1',
       bgColor: 'bg-yellow-900',
-      popupColor: 'bg-yellow-600',
+      popupColor: 'bg-green-600',
       description: 'Solar adoption reduces dependency on fossil fuel imports, strengthens energy security, and supports India\'s commitment to carbon neutrality by 2070.'
     }
   ];
@@ -39,8 +39,7 @@ const WhyChooseSolar = () => {
           {benefits.map((benefit) => (
             <div 
               key={benefit.id}
-              className="relative overflow-hidden rounded-lg shadow-lg group cursor-pointer w-full max-w-sm lg:max-w-none" 
-              style={{ height: '280px', maxHeight: '349px' }}
+              className="relative overflow-hidden rounded-lg shadow-lg group cursor-pointer w-full max-w-sm lg:max-w-none aspect-square" 
             >
               <div 
                 className="w-full h-full bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
@@ -55,10 +54,10 @@ const WhyChooseSolar = () => {
                 </div>
               </div>
               
-              {/* Popup that slides from bottom */}
-              <div className={`absolute inset-x-0 bottom-0 ${benefit.popupColor} text-white p-4 sm:p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out`}>
-                <h4 className="font-bold text-base sm:text-lg mb-2">{benefit.title}</h4>
-                <p className="text-xs sm:text-sm leading-relaxed">
+              {/* Square popup that moves to top */}
+              <div className={`absolute top-4 left-4 right-4 bottom-4 ${benefit.popupColor} text-white p-6 sm:p-8 rounded-lg transform translate-y-full group-hover:translate-y-0 transition-all duration-500 ease-out shadow-lg flex flex-col justify-start items-center text-center opacity-0 group-hover:opacity-100 pt-8`}>
+                <h4 className="font-bold text-lg sm:text-xl lg:text-2xl mb-4">{benefit.title}</h4>
+                <p className="text-sm sm:text-base lg:text-lg leading-relaxed">
                   {benefit.description}
                 </p>
               </div>

@@ -202,3 +202,9 @@
 .service-card.animate:nth-child(3) {
   animation-delay: 0.8s;
 }
+
+/* Floating hover effect for service cards */
+.service-card.animate:hover {
+  transform: translateY(-8px) !important;
+  transition: transform 0.2s ease-out !important;
+}
