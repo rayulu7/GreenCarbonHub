@@ -1,7 +1,36 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const InstallationServices = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   const services = [
     {
       id: 1,
@@ -41,18 +70,22 @@ const InstallationServices = () => {
   ];
 
   return (
-    <div className="bg-gray-50 py-16 px-4">
+    <div ref={sectionRef} className="bg-gray-50 py-16 px-4">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl font-bold text-gray-800 text-center mb-12">
           INSTALLATION SERVICES
         </h2>
         
         <div className="flex flex-wrap justify-center gap-8">
-          {services.map((service) => (
+          {services.map((service, index) => (
             <div 
               key={service.id}
-              className="group bg-white rounded-lg shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 flex flex-col" 
-              style={{ width: '340px', height: '580px' }}
+              className={`service-card group bg-white rounded-lg shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 flex flex-col ${isVisible ? 'animate' : ''}`}
+              style={{ 
+                width: '340px', 
+                height: '580px',
+                animationDelay: `${index * 0.4}s`
+              }}
             >
               <div className="relative" style={{ width: '340px', height: '340px' }}>
                 <img 
