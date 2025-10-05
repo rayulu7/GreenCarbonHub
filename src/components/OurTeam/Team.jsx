@@ -3,9 +3,11 @@ import { Users, Award, Linkedin, Mail, Phone, MapPin, Star, CheckCircle } from '
 
 const Team = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(false);
   const [activeMember, setActiveMember] = useState(0);
   const [hoveredMember, setHoveredMember] = useState(null);
   const sectionRef = useRef(null);
+  const headerRef = useRef(null);
 
   const teamMembers = [
     {
@@ -86,6 +88,22 @@ const Team = () => {
   ];
 
 
+  // Intersection Observer for header animation
+  useEffect(() => {
+    const headerObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsHeaderVisible(true);
+          headerObserver.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+    
+    if (headerRef.current) headerObserver.observe(headerRef.current);
+    return () => headerObserver.disconnect();
+  }, []);
+
   // Intersection Observer for scroll animation
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -114,14 +132,14 @@ const Team = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-green-50">
       {/* Hero Section */}
-      <section className="pt-20 pb-16 bg-white">
+      <section ref={headerRef} className="pt-20 pb-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className={`
             text-center transition-all duration-1000
-            ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
+            ${isHeaderVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
           `}>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gray-800">
-              Our <span className="text-green-600">Team</span>
+              Our Team
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-8">
               Meet the passionate experts driving sustainable innovation
@@ -148,7 +166,7 @@ const Team = () => {
             ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
           `}>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Meet Our <span className="text-green-600">Expert Team</span>
+              Meet Our Expert Team
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Dedicated professionals committed to sustainable energy solutions

@@ -3,9 +3,11 @@ import { Users, Award, Linkedin, Mail, GraduationCap, Briefcase, Star, CheckCirc
 
 const Board = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(false);
   const [activeAdvisor, setActiveAdvisor] = useState(0);
   const [hoveredAdvisor, setHoveredAdvisor] = useState(null);
   const sectionRef = useRef(null);
+  const headerRef = useRef(null);
 
   const advisoryBoard = [
     {
@@ -98,6 +100,22 @@ const Board = () => {
   ];
 
 
+  // Intersection Observer for header animation
+  useEffect(() => {
+    const headerObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsHeaderVisible(true);
+          headerObserver.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+    
+    if (headerRef.current) headerObserver.observe(headerRef.current);
+    return () => headerObserver.disconnect();
+  }, []);
+
   // Intersection Observer for scroll animation
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -126,14 +144,14 @@ const Board = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-green-50">
       {/* Hero Section */}
-      <section className="pt-20 pb-16 bg-white">
+      <section ref={headerRef} className="pt-20 pb-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className={`
             text-center transition-all duration-1000
-            ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
+            ${isHeaderVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
           `}>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gray-800">
-              Advisory <span className="text-green-600">Board</span>
+              Advisory Board
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-8">
               Industry leaders and experts guiding our sustainable energy vision
@@ -160,7 +178,7 @@ const Board = () => {
             ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
           `}>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Our <span className="text-green-600">Advisory Board</span>
+              Our Advisory Board
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Distinguished experts providing strategic guidance and industry insights

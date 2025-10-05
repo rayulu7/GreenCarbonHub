@@ -3,9 +3,11 @@ import { ShoppingCart, Package, Star, Truck, Shield, Zap, Droplets, Wrench, Chec
 
 const Store = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(false);
   const [activeCategory, setActiveCategory] = useState(0);
   const [hoveredProduct, setHoveredProduct] = useState(null);
   const sectionRef = useRef(null);
+  const headerRef = useRef(null);
 
   const storePoints = [
     "Get high-quality solar, water, and wastewater management components and consumables all in one place.",
@@ -88,6 +90,22 @@ const Store = () => {
     { number: "99%", label: "Satisfaction Rate" }
   ];
 
+  // Intersection Observer for header animation
+  useEffect(() => {
+    const headerObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsHeaderVisible(true);
+          headerObserver.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+    
+    if (headerRef.current) headerObserver.observe(headerRef.current);
+    return () => headerObserver.disconnect();
+  }, []);
+
   // Intersection Observer for scroll animation
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -116,26 +134,25 @@ const Store = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-green-50">
       {/* Hero Section */}
-      <section className="pt-20 pb-16 bg-gradient-to-r from-green-600 via-green-700 to-green-800 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <section ref={headerRef} className="pt-20 pb-16 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
           <div className={`
             text-center transition-all duration-1000
-            ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
+            ${isHeaderVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
           `}>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Green <span className="text-yellow-400">Store</span>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gray-800">
+              Green Store
             </h1>
-            <p className="text-xl md:text-2xl text-green-100 max-w-3xl mx-auto mb-8">
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-8">
               Your one-stop destination for sustainable technology components
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <div className="flex items-center space-x-2 bg-white/20 rounded-full px-6 py-3">
-                <Package className="w-5 h-5 text-yellow-400" />
+              <div className="flex items-center space-x-2 bg-green-100 text-green-600 rounded-full px-6 py-3">
+                <Package className="w-5 h-5" />
                 <span className="font-medium">1000+ Products</span>
               </div>
-              <div className="flex items-center space-x-2 bg-white/20 rounded-full px-6 py-3">
-                <Truck className="w-5 h-5 text-yellow-400" />
+              <div className="flex items-center space-x-2 bg-orange-100 text-orange-600 rounded-full px-6 py-3">
+                <Truck className="w-5 h-5" />
                 <span className="font-medium">Fast Delivery</span>
               </div>
             </div>
@@ -144,14 +161,14 @@ const Store = () => {
       </section>
 
       {/* Store Points Section */}
-      <section ref={sectionRef} className="py-20">
+      <section ref={sectionRef} className="pt-20 pb-0">
         <div className="max-w-7xl mx-auto px-6">
           <div className={`
             text-center mb-16 transition-all duration-1000 delay-200
             ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
           `}>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Why Choose Our <span className="text-green-600">Store</span>?
+              Why Choose Our Store?
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Quality products, competitive prices, and exceptional service
@@ -316,32 +333,6 @@ const Store = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-green-600 to-green-700 text-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <div className={`
-            transition-all duration-1000 delay-800
-            ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
-          `}>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Ready to Shop Sustainable?
-            </h2>
-            <p className="text-xl text-green-100 mb-8">
-              Browse our extensive catalog of quality products and start building your sustainable future
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg flex items-center justify-center space-x-2">
-                <span>Browse Products</span>
-                <ArrowRight className="w-5 h-5" />
-              </button>
-              <button className="border-2 border-white text-white hover:bg-white hover:text-green-600 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-2">
-                <span>View Catalog</span>
-                <Package className="w-5 h-5" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };

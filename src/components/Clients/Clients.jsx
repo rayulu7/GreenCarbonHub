@@ -47,7 +47,7 @@ const Clients = () => {
           ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
         `}>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-            Our <span className="text-green-600">Clients</span>
+            Our Clients
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Trusted by leading organizations in sustainable energy solutions

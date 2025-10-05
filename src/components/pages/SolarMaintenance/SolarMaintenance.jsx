@@ -3,8 +3,10 @@ import { CheckCircle, Wrench, Zap, Shield, TrendingUp, Clock, Star } from 'lucid
 
 const SolarMaintenance = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(false);
   const [activeFeature, setActiveFeature] = useState(0);
   const sectionRef = useRef(null);
+  const headerRef = useRef(null);
 
   const features = [
     {
@@ -36,6 +38,22 @@ const SolarMaintenance = () => {
     "Emergency Support"
   ];
 
+  // Intersection Observer for header animation
+  useEffect(() => {
+    const headerObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsHeaderVisible(true);
+          headerObserver.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+    
+    if (headerRef.current) headerObserver.observe(headerRef.current);
+    return () => headerObserver.disconnect();
+  }, []);
+
   // Intersection Observer for scroll animation
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -64,25 +82,25 @@ const SolarMaintenance = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-green-50">
       {/* Hero Section */}
-      <section className="pt-20 pb-16 bg-gradient-to-r from-green-600 via-green-700 to-green-800 text-white">
+      <section ref={headerRef} className="pt-20 pb-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className={`
             text-center transition-all duration-1000
-            ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
+            ${isHeaderVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
           `}>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Solar <span className="text-orange-400">Maintenance</span>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gray-800">
+              Solar Maintenance
             </h1>
-            <p className="text-xl md:text-2xl text-green-100 max-w-3xl mx-auto mb-8">
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-8">
               Keep your solar investment performing at its best with our comprehensive maintenance solutions
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <div className="flex items-center space-x-2 bg-white/20 rounded-full px-6 py-3">
-                <Star className="w-5 h-5 text-yellow-400" />
+              <div className="flex items-center space-x-2 bg-green-100 text-green-600 rounded-full px-6 py-3">
+                <Star className="w-5 h-5" />
                 <span className="font-medium">Expert Technicians</span>
               </div>
-              <div className="flex items-center space-x-2 bg-white/20 rounded-full px-6 py-3">
-                <Clock className="w-5 h-5 text-yellow-400" />
+              <div className="flex items-center space-x-2 bg-orange-100 text-orange-600 rounded-full px-6 py-3">
+                <Clock className="w-5 h-5" />
                 <span className="font-medium">24/7 Monitoring</span>
               </div>
             </div>
@@ -91,19 +109,8 @@ const SolarMaintenance = () => {
       </section>
 
       {/* Features Section */}
-      <section ref={sectionRef} className="py-20">
+      <section ref={sectionRef} className="pt-20 pb-0">
         <div className="max-w-7xl mx-auto px-6">
-          <div className={`
-            text-center mb-16 transition-all duration-1000 delay-200
-            ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
-          `}>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Why Choose Our <span className="text-green-600">Maintenance</span> Services?
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Professional maintenance ensures your solar system operates at peak efficiency
-            </p>
-          </div>
 
           {/* Feature Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
@@ -167,30 +174,6 @@ const SolarMaintenance = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-green-600 to-green-700 text-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <div className={`
-            transition-all duration-1000 delay-700
-            ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
-          `}>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Ready to Optimize Your Solar System?
-            </h2>
-            <p className="text-xl text-green-100 mb-8">
-              Get professional maintenance services and keep your solar investment performing at its best
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg">
-                Get Maintenance Quote
-              </button>
-              <button className="border-2 border-white text-white hover:bg-white hover:text-green-600 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105">
-                Learn More
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };

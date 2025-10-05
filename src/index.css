@@ -39,7 +39,7 @@
 }
 
 .animate-fade-in-up {
-  animation: fadeInUp 7s ease-out forwards;
+  animation: fadeInUp 4s ease-out forwards;
 }
 
 .animate-fade-in-right {

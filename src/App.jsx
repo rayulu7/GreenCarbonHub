@@ -44,6 +44,15 @@ function HomePage() {
       <section id="services">
         <Services />
       </section>
+      <section id="solar-maintenance">
+        <SolarMaintenance />
+      </section>
+      <section id="investments">
+        <Investments />
+      </section>
+      <section id="store">
+        <Store />
+      </section>
       <section id="clients">
         <Clients />
       </section>

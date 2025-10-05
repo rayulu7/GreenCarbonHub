@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ChevronDown, Menu, X } from "lucide-react";
 
 const Navbar = () => {
@@ -8,6 +8,29 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const timeoutRef = useRef(null);
   const maintenanceTimeoutRef = useRef(null);
+  const location = useLocation();
+
+  // Scroll to section function
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMobileMenuOpen(false);
+    setIsDropdownOpen(false);
+    setIsMaintenanceDropdownOpen(false);
+  };
+
+  // Handle navigation for different pages
+  const handleNavigation = (path, sectionId) => {
+    if (location.pathname === '/') {
+      // If on homepage, scroll to section
+      scrollToSection(sectionId);
+    } else {
+      // If on other page, navigate to homepage and then scroll
+      window.location.href = `/#${sectionId}`;
+    }
+  };
 
   const handleMouseEnter = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -88,12 +111,6 @@ const Navbar = () => {
                   >
                     Water & Wastewater Management
                   </Link>
-                  <Link
-                    to="/bio-methanation"
-                    className="block px-4 py-2 text-black hover:text-orange-500 transition-colors text-sm"
-                  >
-                    Bio-Methanation
-                  </Link>
 
                 </div>
               </div>
@@ -113,40 +130,28 @@ const Navbar = () => {
             {isMaintenanceDropdownOpen && (
               <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-50">
                 <div className="py-2">
-                  <Link
-                    to="/solar-maintenance"
-                    className="block px-4 py-2 text-black hover:text-orange-500 transition-colors text-sm"
+                  <button
+                    onClick={() => handleNavigation('/', 'solar-maintenance')}
+                    className="block w-full text-left px-4 py-2 text-black hover:text-orange-500 transition-colors text-sm"
                   >
                     Solar Maintenance
-                  </Link>
+                  </button>
                 </div>
               </div>
             )}
           </div>
-          <Link
-            to="/investments"
+          <button
+            onClick={() => handleNavigation('/', 'investments')}
             className="text-green-600 hover:text-orange-500 transition-colors font-medium text-sm xl:text-base"
           >
             Investments
-          </Link>
-          <Link
-            to="/store"
+          </button>
+          <button
+            onClick={() => handleNavigation('/', 'store')}
             className="text-green-600 hover:text-orange-500 transition-colors font-medium text-sm xl:text-base"
           >
             Store
-          </Link>
-          <Link
-            to="/#why-gch"
-            className="text-green-600 hover:text-orange-500 transition-colors font-medium text-sm xl:text-base"
-          >
-            About Us
-          </Link>
-          <Link
-            to="/#contact-us"
-            className="text-green-600 hover:text-orange-500 transition-colors font-medium text-sm xl:text-base"
-          >
-            Contact Us
-          </Link>
+          </button>
         </nav>
 
         {/* Login + Mobile Toggle */}
@@ -209,13 +214,6 @@ const Navbar = () => {
                 >
                   Water & Wastewater Management
                 </Link>
-                <Link
-                  to="/bio-methanation"
-                  className="block text-black hover:text-orange-500 transition-colors text-sm sm:text-base"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Bio-Methanation
-                </Link>
               </div>
             )}
           </div>
@@ -235,44 +233,27 @@ const Navbar = () => {
             </button>
             {isMaintenanceDropdownOpen && (
               <div className="mt-2 pl-4 space-y-2">
-                <Link
-                  to="/solar-maintenance"
-                  className="block text-black hover:text-orange-500 transition-colors text-sm sm:text-base"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                <button
+                  onClick={() => handleNavigation('/', 'solar-maintenance')}
+                  className="block w-full text-left text-black hover:text-orange-500 transition-colors text-sm sm:text-base"
                 >
                   Solar Maintenance
-                </Link>
+                </button>
               </div>
             )}
           </div>
-          <Link
-            to="/investments"
-            className="block text-green-600 hover:text-orange-500 transition-colors font-medium text-sm sm:text-base"
-            onClick={() => setIsMobileMenuOpen(false)}
+          <button
+            onClick={() => handleNavigation('/', 'investments')}
+            className="block w-full text-left text-green-600 hover:text-orange-500 transition-colors font-medium text-sm sm:text-base"
           >
             Investments
-          </Link>
-          <Link
-            to="/store"
-            className="block text-green-600 hover:text-orange-500 transition-colors font-medium text-sm sm:text-base"
-            onClick={() => setIsMobileMenuOpen(false)}
+          </button>
+          <button
+            onClick={() => handleNavigation('/', 'store')}
+            className="block w-full text-left text-green-600 hover:text-orange-500 transition-colors font-medium text-sm sm:text-base"
           >
             Store
-          </Link>
-          <Link
-            to="/#why-gch"
-            className="block text-green-600 hover:text-orange-500 transition-colors font-medium text-sm sm:text-base"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            About Us
-          </Link>
-          <Link
-            to="/#contact-us"
-            className="block text-green-600 hover:text-orange-500 transition-colors font-medium text-sm sm:text-base"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Contact Us
-          </Link>
+          </button>
 
           <button className="w-full bg-green-600 hover:bg-green-700 text-white px-4 sm:px-6 py-2 rounded-lg font-medium transition-all duration-300 shadow-md hover:shadow-lg text-sm sm:text-base">
             Login
