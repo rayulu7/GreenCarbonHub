@@ -36,54 +36,51 @@ export default function Weprovide({ type = "residential" }) {
   return (
     <section className="w-full bg-[#EAF3ED]">
       {/* Container */}
-      <div className="mx-auto max-w-[1200px] px-[15px]">
-        {/* Heading with 100px padding top and bottom */}
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-[#111827] pt-[100px] pb-[100px]">
+      <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+        {/* Heading with responsive padding */}
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-[#111827] pt-12 md:pt-16 lg:pt-20 pb-8 md:pb-12 lg:pb-16">
           We Provide
         </h2>
 
-        {/* Card row */}
-        <div className="flex xl:flex-nowrap flex-wrap justify-between gap-y-8">
+        {/* Responsive card grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 justify-items-center">
           {cards.map((c) => {
             const expanded = openId === c.id;
             return (
               <article
                 key={c.id}
-                className="bg-white rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.10)] transition-all duration-300 flex flex-col mx-[15px] mb-6"
+                className="bg-white rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.10)] transition-all duration-300 flex flex-col w-full max-w-sm lg:max-w-none hover:shadow-[0_20px_40px_rgba(0,0,0,0.15)] hover:-translate-y-2 hover:bg-gray-50"
                 style={{
-                  width: "379.99px",
-                  height: expanded ? expandedHeight : "229.2px",
+                  minHeight: expanded ? "400px" : "250px",
+                  height: "auto",
                   border: "0.8px solid #e5e7eb",
                 }}
               >
-                <div className="px-6 pt-6 flex-1 overflow-hidden">
-                  <h3 className="text-center text-[22px] font-semibold text-[#111827]">
+                <div className="px-4 md:px-6 pt-4 md:pt-6 flex-1 overflow-hidden">
+                  <h3 className="text-center text-base sm:text-lg md:text-xl font-semibold text-[#111827]">
                     {c.title}
                   </h3>
 
                   {!expanded ? (
-                    <p className="mt-4 text-[16px] leading-7 text-center text-[#333333]">
+                    <p className="mt-3 md:mt-4 text-sm md:text-base leading-6 md:leading-7 text-center text-[#333333]">
                       {c.short}
                     </p>
                   ) : (
-                    <p className="mt-4 text-[16px] leading-7 text-justify text-[#333333]">
+                    <p className="mt-3 md:mt-4 text-sm md:text-base leading-6 md:leading-7 text-justify text-[#333333]">
                       {c.long}
                     </p>
                   )}
                 </div>
 
-                <div className="w-full flex justify-center">
+                <div className="w-full flex justify-center px-4 md:px-6 pb-4 md:pb-6">
                   <button
                     onClick={() => toggle(c.id)}
-                    className="rounded-md text-white font-semibold transition-transform duration-200 hover:scale-[1.02] active:scale-[0.99]"
+                    className="rounded-md text-white font-semibold transition-transform duration-200 hover:scale-[1.02] active:scale-[0.99] text-sm md:text-base px-4 md:px-6 py-2 md:py-3"
                     style={{
                       background: GREEN,
-                      padding: "6px 12px",
                       borderStyle: "solid",
                       borderWidth: "0.8px",
                       borderColor: GREEN,
-                      marginTop: "11px",
-                      marginBottom: "18px",
                     }}
                   >
                     {expanded ? "Read Less" : "Read More"}
@@ -95,7 +92,7 @@ export default function Weprovide({ type = "residential" }) {
         </div>
       </div>
       {/* Bottom padding for container */}
-      <div className="pb-[100px]"></div>
+      <div className="pb-16 md:pb-20 lg:pb-24"></div>
     </section>
   );
 }

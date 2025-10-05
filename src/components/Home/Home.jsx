@@ -47,26 +47,6 @@ const HeroSection = () => {
         </a>
       </div>
 
-      {/* Keyframes */}
-      <style>{`
-        @keyframes fadeUp {
-          from { opacity: 0; transform: translateY(12px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-up {
-          animation: fadeUp 2s ease-out both;
-        }
-
-        /* Button entrance: rolls up (translate + rotate) and fades in */
-        @keyframes rollUpIntro {
-          0%   { opacity: 0; transform: translateY(18px) rotate(-8deg) scale(.98); }
-          60%  { opacity: 1; transform: translateY(-2px) rotate(4deg)  scale(1.05); }
-          100% { opacity: 1; transform: translateY(0)    rotate(0deg)  scale(1); }
-        }
-        .animate-roll-up {
-          animation: rollUpIntro .8s cubic-bezier(.2,.8,.25,1) both;
-        }
-      `}</style>
     </section>
   );
 };

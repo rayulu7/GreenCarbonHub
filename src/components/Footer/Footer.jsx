@@ -86,8 +86,8 @@ const FooterContent = () => {
 
         {/* Footer Bottom */}
         <div className="border-t border-gray-700 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-500 text-sm mb-4 md:mb-0">
+          <div className="flex flex-col items-center space-y-4">
+            <p className="text-gray-500 text-sm text-center">
               © 2024 <span className="text-orange-500">GreenCarbonHub</span>. All Rights Reserved.
             </p>
             <div className="flex space-x-4">

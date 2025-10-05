@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 
 const cardData = [
   {
-    image: './solarinstallation.jpg',
+    image: './solar_service.jpg',
     title: "Solar Installation",
     description: "We provide expert solar installation solutions, helping you transition to clean and sustainable energy effortlessly.",
     path: "/solar-installation"
   },
   {
-    image: './waterManagement.jpg',
+    image: './waste_water.jpg',
     title: "Water & Wastewater Management",
     description: "Offering innovative water and wastewater management solutions to ensure efficient usage and sustainable recycling processes.",
     path: "/water-and-wastewater-management"

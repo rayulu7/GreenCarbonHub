@@ -4,8 +4,10 @@ import { ChevronDown, Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isMaintenanceDropdownOpen, setIsMaintenanceDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const timeoutRef = useRef(null);
+  const maintenanceTimeoutRef = useRef(null);
 
   const handleMouseEnter = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -16,12 +18,25 @@ const Navbar = () => {
     timeoutRef.current = setTimeout(() => setIsDropdownOpen(false), 300);
   };
 
+  const handleMaintenanceMouseEnter = () => {
+    if (maintenanceTimeoutRef.current) clearTimeout(maintenanceTimeoutRef.current);
+    setIsMaintenanceDropdownOpen(true);
+  };
+
+  const handleMaintenanceMouseLeave = () => {
+    maintenanceTimeoutRef.current = setTimeout(() => setIsMaintenanceDropdownOpen(false), 300);
+  };
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen((prev) => !prev);
   };
 
   const toggleMobileDropdown = () => {
     setIsDropdownOpen((prev) => !prev);
+  };
+
+  const toggleMobileMaintenanceDropdown = () => {
+    setIsMaintenanceDropdownOpen((prev) => !prev);
   };
 
   return (
@@ -85,6 +100,41 @@ const Navbar = () => {
             )}
           </div>
 
+          {/* Maintenance Dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={handleMaintenanceMouseEnter}
+            onMouseLeave={handleMaintenanceMouseLeave}
+          >
+            <button className="flex items-center text-green-600 font-medium bg-transparent focus:outline-none hover:text-orange-500 transition-colors text-sm xl:text-base">
+              Maintenance
+              <ChevronDown className="ml-1 w-4 h-4" />
+            </button>
+            {isMaintenanceDropdownOpen && (
+              <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-50">
+                <div className="py-2">
+                  <Link
+                    to="/solar-maintenance"
+                    className="block px-4 py-2 text-black hover:text-orange-500 transition-colors text-sm"
+                  >
+                    Solar Maintenance
+                  </Link>
+                </div>
+              </div>
+            )}
+          </div>
+          <Link
+            to="/investments"
+            className="text-green-600 hover:text-orange-500 transition-colors font-medium text-sm xl:text-base"
+          >
+            Investments
+          </Link>
+          <Link
+            to="/store"
+            className="text-green-600 hover:text-orange-500 transition-colors font-medium text-sm xl:text-base"
+          >
+            Store
+          </Link>
           <Link
             to="/#why-gch"
             className="text-green-600 hover:text-orange-500 transition-colors font-medium text-sm xl:text-base"
@@ -170,6 +220,45 @@ const Navbar = () => {
             )}
           </div>
 
+          {/* Mobile Maintenance Dropdown */}
+          <div>
+            <button
+              className="flex items-center justify-between w-full text-green-600 font-medium hover:text-orange-500 transition-colors text-sm sm:text-base"
+              onClick={toggleMobileMaintenanceDropdown}
+            >
+              Maintenance
+              <ChevronDown
+                className={`ml-2 w-4 h-4 transform transition-transform ${
+                  isMaintenanceDropdownOpen ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+            {isMaintenanceDropdownOpen && (
+              <div className="mt-2 pl-4 space-y-2">
+                <Link
+                  to="/solar-maintenance"
+                  className="block text-black hover:text-orange-500 transition-colors text-sm sm:text-base"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Solar Maintenance
+                </Link>
+              </div>
+            )}
+          </div>
+          <Link
+            to="/investments"
+            className="block text-green-600 hover:text-orange-500 transition-colors font-medium text-sm sm:text-base"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Investments
+          </Link>
+          <Link
+            to="/store"
+            className="block text-green-600 hover:text-orange-500 transition-colors font-medium text-sm sm:text-base"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Store
+          </Link>
           <Link
             to="/#why-gch"
             className="block text-green-600 hover:text-orange-500 transition-colors font-medium text-sm sm:text-base"

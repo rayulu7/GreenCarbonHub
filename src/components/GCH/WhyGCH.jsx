@@ -18,6 +18,7 @@ const WhyGCHSection = () => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
+          console.log('Animation triggered!'); // Debug log
           setHasAnimated(true); // play animation once
           observer.disconnect(); // stop observing (keeps it visible)
         }
@@ -39,10 +40,10 @@ const WhyGCHSection = () => {
           {/* Left side - Image */}
           <div className="relative h-[482px] overflow-hidden rounded-2xl bg-white">
             <img 
-              src="https://images.pexels.com/photos/9800029/pexels-photo-9800029.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop"
+              src="/whyGCH.webp"
               alt="Sustainable energy landscape with wind turbines and solar panels"
-              className={`w-full h-full object-cover transition-all duration-700 
-                ${hasAnimated ? 'animate-fade-in-up opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} 
+              className={`w-full h-full object-cover
+                ${hasAnimated ? 'animate-fade-in-up' : 'opacity-0'}`}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-green-900/20 to-transparent"></div>
           </div>
@@ -50,7 +51,7 @@ const WhyGCHSection = () => {
           {/* Right side - Content */}
           <div className={`
             transition-all duration-700
-            ${hasAnimated ? 'animate-fade-in-right opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}
+            ${hasAnimated ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}
           `}>
             <h2 className="text-5xl font-bold text-gray-800 mb-12">
               Why <span className="text-green-600">GCH</span> ?
