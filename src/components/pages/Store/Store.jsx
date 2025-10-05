@@ -132,9 +132,10 @@ const Store = () => {
   }, [categories.length]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-green-50">
-      {/* Hero Section */}
-      <section ref={headerRef} className="pt-20 pb-16 bg-white">
+    <div className="bg-gradient-to-br from-gray-50 via-white to-green-50">
+      {/* HIDDEN CONTENT - All sections commented out */}
+      {/* Hero Section - HIDDEN */}
+      {/* <section ref={headerRef} className="pt-20 pb-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className={`
             text-center transition-all duration-1000
@@ -158,13 +159,11 @@ const Store = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
-      {/* Store Points Section */}
-      <section ref={sectionRef} className="bg-white">
+      {/* Store Points Section - HIDDEN */}
+      {/* <section ref={sectionRef} className="bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-          {/* Store Points */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-12 lg:mb-16">
             {storePoints.map((point, index) => (
               <div
@@ -184,7 +183,6 @@ const Store = () => {
             ))}
           </div>
 
-          {/* Featured Products */}
           <div className={`
             mb-12 lg:mb-16 transition-all duration-1000 delay-500
             ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
@@ -231,7 +229,6 @@ const Store = () => {
             </div>
           </div>
 
-          {/* Benefits Grid */}
           <div className={`
             grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 transition-all duration-1000 delay-700
             ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
@@ -251,19 +248,21 @@ const Store = () => {
               </div>
             ))}
           </div>
-
         </div>
-      </section>
+      </section> */}
 
-      {/* Coming Soon Section */}
-      <section className="pt-2 pb-16 bg-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
+      {/* Coming Soon Section - ACTIVE */}
+      <section className="py-8 bg-white">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
+            <h1 className="text-3xl md:text-4xl font-bold mb-3 text-gray-800">
+              Store
+            </h1>
+            <h2 className="text-2xl md:text-3xl font-bold mb-3 text-green-600">
               Coming Soon!
             </h2>
-            <p className="text-xl text-gray-600">
-              We're working on exciting new features and services. Stay tuned for updates!
+            <p className="text-lg text-gray-600">
+              We're working on our sustainable technology store. Stay tuned for updates!
             </p>
           </div>
         </div>
