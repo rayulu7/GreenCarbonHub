@@ -11,80 +11,80 @@ const Team = () => {
 
   const teamMembers = [
     {
-      name: "Dr. Rajesh Kumar",
+      name: "Dr. Pavan Mohit",
       position: "Chief Executive Officer",
       department: "Leadership",
-      experience: "15+ Years",
+      experience: "5+ Years",
       image: "/team/rajesh.jpg",
       bio: "Visionary leader with extensive experience in renewable energy and sustainable technology.",
       skills: ["Strategic Planning", "Leadership", "Innovation"],
-      linkedin: "https://linkedin.com/in/rajesh-kumar",
-      email: "rajesh@gch.com"
+      linkedin: "https://linkedin.com/in/pavan-mohit",
+      email: "pavan@gch.com"
     },
-    {
-      name: "Priya Sharma",
-      position: "Chief Technology Officer",
-      department: "Technology",
-      experience: "12+ Years",
-      image: "/team/priya.jpg",
-      bio: "Technology expert specializing in solar energy systems and smart grid solutions.",
-      skills: ["Solar Technology", "System Design", "Innovation"],
-      linkedin: "https://linkedin.com/in/priya-sharma",
-      email: "priya@gch.com"
-    },
-    {
-      name: "Amit Patel",
-      position: "Head of Operations",
-      department: "Operations",
-      experience: "10+ Years",
-      image: "/team/amit.jpg",
-      bio: "Operations specialist ensuring smooth project execution and quality delivery.",
-      skills: ["Project Management", "Quality Control", "Team Leadership"],
-      linkedin: "https://linkedin.com/in/amit-patel",
-      email: "amit@gch.com"
-    },
-    {
-      name: "Dr. Sunita Reddy",
-      position: "Head of Research",
-      department: "R&D",
-      experience: "14+ Years",
-      image: "/team/sunita.jpg",
-      bio: "Research scientist focused on advancing renewable energy technologies.",
-      skills: ["Research", "Innovation", "Technical Analysis"],
-      linkedin: "https://linkedin.com/in/sunita-reddy",
-      email: "sunita@gch.com"
-    },
-    {
-      name: "Vikram Singh",
-      position: "Head of Sales",
-      department: "Sales",
-      experience: "8+ Years",
-      image: "/team/vikram.jpg",
-      bio: "Sales leader driving growth and building strong client relationships.",
-      skills: ["Sales Strategy", "Client Relations", "Business Development"],
-      linkedin: "https://linkedin.com/in/vikram-singh",
-      email: "vikram@gch.com"
-    },
-    {
-      name: "Meera Joshi",
-      position: "Head of Finance",
-      department: "Finance",
-      experience: "11+ Years",
-      image: "/team/meera.jpg",
-      bio: "Finance expert managing investments and ensuring sustainable growth.",
-      skills: ["Financial Planning", "Investment Analysis", "Risk Management"],
-      linkedin: "https://linkedin.com/in/meera-joshi",
-      email: "meera@gch.com"
-    }
+    // {
+    //   name: "Priya Sharma",
+    //   position: "Chief Technology Officer",
+    //   department: "Technology",
+    //   experience: "12+ Years",
+    //   image: "/team/priya.jpg",
+    //   bio: "Technology expert specializing in solar energy systems and smart grid solutions.",
+    //   skills: ["Solar Technology", "System Design", "Innovation"],
+    //   linkedin: "https://linkedin.com/in/priya-sharma",
+    //   email: "priya@gch.com"
+    // },
+    // {
+    //   name: "Amit Patel",
+    //   position: "Head of Operations",
+    //   department: "Operations",
+    //   experience: "10+ Years",
+    //   image: "/team/amit.jpg",
+    //   bio: "Operations specialist ensuring smooth project execution and quality delivery.",
+    //   skills: ["Project Management", "Quality Control", "Team Leadership"],
+    //   linkedin: "https://linkedin.com/in/amit-patel",
+    //   email: "amit@gch.com"
+    // },
+    // {
+    //   name: "Dr. Sunita Reddy",
+    //   position: "Head of Research",
+    //   department: "R&D",
+    //   experience: "14+ Years",
+    //   image: "/team/sunita.jpg",
+    //   bio: "Research scientist focused on advancing renewable energy technologies.",
+    //   skills: ["Research", "Innovation", "Technical Analysis"],
+    //   linkedin: "https://linkedin.com/in/sunita-reddy",
+    //   email: "sunita@gch.com"
+    // },
+    // {
+    //   name: "Vikram Singh",
+    //   position: "Head of Sales",
+    //   department: "Sales",
+    //   experience: "8+ Years",
+    //   image: "/team/vikram.jpg",
+    //   bio: "Sales leader driving growth and building strong client relationships.",
+    //   skills: ["Sales Strategy", "Client Relations", "Business Development"],
+    //   linkedin: "https://linkedin.com/in/vikram-singh",
+    //   email: "vikram@gch.com"
+    // },
+    // {
+    //   name: "Meera Joshi",
+    //   position: "Head of Finance",
+    //   department: "Finance",
+    //   experience: "11+ Years",
+    //   image: "/team/meera.jpg",
+    //   bio: "Finance expert managing investments and ensuring sustainable growth.",
+    //   skills: ["Financial Planning", "Investment Analysis", "Risk Management"],
+    //   linkedin: "https://linkedin.com/in/meera-joshi",
+    //   email: "meera@gch.com"
+    // }
   ];
 
   const departments = [
-    { name: "Leadership", count: 1, color: "from-purple-500 to-purple-600" },
-    { name: "Technology", count: 1, color: "from-blue-500 to-blue-600" },
-    { name: "Operations", count: 1, color: "from-green-500 to-green-600" },
-    { name: "Research", count: 1, color: "from-orange-500 to-orange-600" },
-    { name: "Sales", count: 1, color: "from-red-500 to-red-600" },
-    { name: "Finance", count: 1, color: "from-indigo-500 to-indigo-600" }
+    // { name: "Leadership", count: 1, color: "from-purple-500 to-purple-600" },
+    // { name: "Technology", count: 1, color: "from-blue-500 to-blue-600" },
+    // { name: "Operations", count: 1, color: "from-green-500 to-green-600" },
+    // { name: "Research", count: 1, color: "from-orange-500 to-orange-600" },
+    // { name: "Sales", count: 1, color: "from-red-500 to-red-600" },
+    // { name: "Finance", count: 1, color: "from-indigo-500 to-indigo-600" }
   ];
 
 
@@ -162,8 +162,9 @@ const Team = () => {
       <section ref={sectionRef} className="bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          {/* Team Members Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12 lg:mb-16">
+          {/* Team Members Grid - Centered for single member */}
+          <div className="flex justify-center mb-8 md:mb-12 lg:mb-16">
+            <div className="w-full max-w-sm mx-4 md:mx-0">
             {teamMembers.map((member, index) => (
               <div
                 key={index}
@@ -191,17 +192,17 @@ const Team = () => {
                 </div>
 
                 {/* Member Info */}
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">{member.name}</h3>
-                  <p className="text-green-600 font-semibold mb-1">{member.position}</p>
-                  <p className="text-gray-600 text-sm mb-4">{member.department}</p>
+                <div className="p-4 md:p-6">
+                  <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-2">{member.name}</h3>
+                  <p className="text-green-600 font-semibold mb-1 text-sm md:text-base">{member.position}</p>
+                  <p className="text-gray-600 text-xs md:text-sm mb-3 md:mb-4">{member.department}</p>
                   
-                  <p className="text-gray-700 text-sm mb-4 leading-relaxed">
+                  <p className="text-gray-700 text-xs md:text-sm mb-3 md:mb-4 leading-relaxed">
                     {member.bio}
                   </p>
 
                   {/* Skills */}
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="flex flex-wrap gap-1 md:gap-2 mb-3 md:mb-4">
                     {member.skills.map((skill, skillIndex) => (
                     <span
                       key={skillIndex}
@@ -213,7 +214,7 @@ const Team = () => {
                   </div>
 
                   {/* Contact Links */}
-                  <div className="flex space-x-3">
+                  <div className="flex space-x-2 md:space-x-3">
                     <a
                       href={member.linkedin}
                       className="flex items-center justify-center w-8 h-8 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors"
@@ -230,10 +231,11 @@ const Team = () => {
                 </div>
               </div>
             ))}
+            </div>
           </div>
 
           {/* Departments */}
-          <div className={`
+          {/* <div className={`
             mb-12 lg:mb-16 transition-all duration-1000 delay-500
             ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
           `}>
@@ -253,13 +255,13 @@ const Team = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
 
         </div>
       </section>
 
       {/* Coming Soon Section */}
-      <section className="pt-2 pb-16 bg-white">
+      {/* <section className="pt-2 pb-16 bg-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
@@ -270,7 +272,7 @@ const Team = () => {
             </p>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

@@ -11,83 +11,83 @@ const Board = () => {
 
   const advisoryBoard = [
     {
-      name: "Prof. Dr. Anil Gupta",
+      name: "Prof. Dr. Pavan Mohit",
       position: "Chairman - Advisory Board",
       expertise: "Renewable Energy Policy",
-      experience: "25+ Years",
+      experience: "5+ Years",
       education: "PhD in Energy Systems",
       currentRole: "Director, National Institute of Solar Energy",
       image: "/board/anil.jpg",
       bio: "Leading expert in renewable energy policy and sustainable development with extensive government and academic experience.",
       achievements: ["Published 50+ Research Papers", "Policy Advisor to Government", "International Recognition"],
-      linkedin: "https://linkedin.com/in/anil-gupta",
-      email: "anil@advisory.gch.com"
+      linkedin: "https://linkedin.com/in/pavan-mohit",
+      email: "pavan@advisory.gch.com"
     },
-    {
-      name: "Dr. Meera Krishnan",
-      position: "Technology Advisor",
-      expertise: "Solar Technology Innovation",
-      experience: "20+ Years",
-      education: "PhD in Photovoltaic Engineering",
-      currentRole: "CTO, Global Solar Solutions",
-      image: "/board/meera.jpg",
-      bio: "Pioneer in solar technology innovation with multiple patents and breakthrough research in photovoltaic systems.",
-      achievements: ["15+ Patents", "Technology Innovation Award", "Global Industry Leader"],
-      linkedin: "https://linkedin.com/in/meera-krishnan",
-      email: "meera@advisory.gch.com"
-    },
-    {
-      name: "Mr. Rajesh Agarwal",
-      position: "Business Strategy Advisor",
-      expertise: "Sustainable Business Development",
-      experience: "18+ Years",
-      education: "MBA in Sustainable Business",
-      currentRole: "CEO, GreenTech Ventures",
-      image: "/board/rajesh.jpg",
-      bio: "Business strategist specializing in sustainable technology investments and green business model development.",
-      achievements: ["$100M+ Investment Portfolio", "Business Strategy Expert", "Sustainability Champion"],
-      linkedin: "https://linkedin.com/in/rajesh-agarwal",
-      email: "rajesh@advisory.gch.com"
-    },
-    {
-      name: "Dr. Sunita Patel",
-      position: "Environmental Advisor",
-      expertise: "Environmental Impact Assessment",
-      experience: "22+ Years",
-      education: "PhD in Environmental Science",
-      currentRole: "Head of Research, Environmental Institute",
-      image: "/board/sunita.jpg",
-      bio: "Environmental scientist with expertise in impact assessment and sustainable development practices.",
-      achievements: ["Environmental Impact Expert", "Research Publications", "Policy Development"],
-      linkedin: "https://linkedin.com/in/sunita-patel",
-      email: "sunita@advisory.gch.com"
-    },
-    {
-      name: "Mr. Vikram Singh",
-      position: "Financial Advisor",
-      expertise: "Green Finance & Investment",
-      experience: "16+ Years",
-      education: "CFA, MBA in Finance",
-      currentRole: "Managing Director, Green Finance Corp",
-      image: "/board/vikram.jpg",
-      bio: "Financial expert specializing in green investments and sustainable finance with extensive market experience.",
-      achievements: ["Green Finance Expert", "Investment Success", "Market Leadership"],
-      linkedin: "https://linkedin.com/in/vikram-singh",
-      email: "vikram@advisory.gch.com"
-    },
-    {
-      name: "Dr. Priya Reddy",
-      position: "Research Advisor",
-      expertise: "Clean Energy Research",
-      experience: "19+ Years",
-      education: "PhD in Clean Energy Systems",
-      currentRole: "Research Director, Energy Research Institute",
-      image: "/board/priya.jpg",
-      bio: "Research scientist focused on clean energy technologies and sustainable energy system development.",
-      achievements: ["Research Excellence", "Innovation Leadership", "Academic Recognition"],
-      linkedin: "https://linkedin.com/in/priya-reddy",
-      email: "priya@advisory.gch.com"
-    }
+    // {
+    //   name: "Dr. Meera Krishnan",
+    //   position: "Technology Advisor",
+    //   expertise: "Solar Technology Innovation",
+    //   experience: "20+ Years",
+    //   education: "PhD in Photovoltaic Engineering",
+    //   currentRole: "CTO, Global Solar Solutions",
+    //   image: "/board/meera.jpg",
+    //   bio: "Pioneer in solar technology innovation with multiple patents and breakthrough research in photovoltaic systems.",
+    //   achievements: ["15+ Patents", "Technology Innovation Award", "Global Industry Leader"],
+    //   linkedin: "https://linkedin.com/in/meera-krishnan",
+    //   email: "meera@advisory.gch.com"
+    // },
+    // {
+    //   name: "Mr. Rajesh Agarwal",
+    //   position: "Business Strategy Advisor",
+    //   expertise: "Sustainable Business Development",
+    //   experience: "18+ Years",
+    //   education: "MBA in Sustainable Business",
+    //   currentRole: "CEO, GreenTech Ventures",
+    //   image: "/board/rajesh.jpg",
+    //   bio: "Business strategist specializing in sustainable technology investments and green business model development.",
+    //   achievements: ["$100M+ Investment Portfolio", "Business Strategy Expert", "Sustainability Champion"],
+    //   linkedin: "https://linkedin.com/in/rajesh-agarwal",
+    //   email: "rajesh@advisory.gch.com"
+    // },
+    // {
+    //   name: "Dr. Sunita Patel",
+    //   position: "Environmental Advisor",
+    //   expertise: "Environmental Impact Assessment",
+    //   experience: "22+ Years",
+    //   education: "PhD in Environmental Science",
+    //   currentRole: "Head of Research, Environmental Institute",
+    //   image: "/board/sunita.jpg",
+    //   bio: "Environmental scientist with expertise in impact assessment and sustainable development practices.",
+    //   achievements: ["Environmental Impact Expert", "Research Publications", "Policy Development"],
+    //   linkedin: "https://linkedin.com/in/sunita-patel",
+    //   email: "sunita@advisory.gch.com"
+    // },
+    // {
+    //   name: "Mr. Vikram Singh",
+    //   position: "Financial Advisor",
+    //   expertise: "Green Finance & Investment",
+    //   experience: "16+ Years",
+    //   education: "CFA, MBA in Finance",
+    //   currentRole: "Managing Director, Green Finance Corp",
+    //   image: "/board/vikram.jpg",
+    //   bio: "Financial expert specializing in green investments and sustainable finance with extensive market experience.",
+    //   achievements: ["Green Finance Expert", "Investment Success", "Market Leadership"],
+    //   linkedin: "https://linkedin.com/in/vikram-singh",
+    //   email: "vikram@advisory.gch.com"
+    // },
+    // {
+    //   name: "Dr. Priya Reddy",
+    //   position: "Research Advisor",
+    //   expertise: "Clean Energy Research",
+    //   experience: "19+ Years",
+    //   education: "PhD in Clean Energy Systems",
+    //   currentRole: "Research Director, Energy Research Institute",
+    //   image: "/board/priya.jpg",
+    //   bio: "Research scientist focused on clean energy technologies and sustainable energy system development.",
+    //   achievements: ["Research Excellence", "Innovation Leadership", "Academic Recognition"],
+    //   linkedin: "https://linkedin.com/in/priya-reddy",
+    //   email: "priya@advisory.gch.com"
+    // }
   ];
 
   const expertiseAreas = [
@@ -174,8 +174,9 @@ const Board = () => {
       <section ref={sectionRef} className="bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          {/* Advisory Board Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12 lg:mb-16">
+          {/* Advisory Board Grid - Centered for single member */}
+          <div className="flex justify-center mb-8 md:mb-12 lg:mb-16">
+            <div className="w-full max-w-sm mx-4 md:mx-0">
             {advisoryBoard.map((advisor, index) => (
               <div
                 key={index}
@@ -208,39 +209,39 @@ const Board = () => {
                 </div>
 
                 {/* Advisor Info */}
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">{advisor.name}</h3>
-                  <p className="text-green-600 font-semibold mb-1">{advisor.position}</p>
-                  <p className="text-gray-600 text-sm mb-2">{advisor.expertise}</p>
-                  <p className="text-gray-500 text-xs mb-4">{advisor.currentRole}</p>
+                <div className="p-4 md:p-6">
+                  <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-2">{advisor.name}</h3>
+                  <p className="text-green-600 font-semibold mb-1 text-sm md:text-base">{advisor.position}</p>
+                  <p className="text-gray-600 text-xs md:text-sm mb-2">{advisor.expertise}</p>
+                  <p className="text-gray-500 text-xs mb-3 md:mb-4">{advisor.currentRole}</p>
                   
-                  <p className="text-gray-700 text-sm mb-4 leading-relaxed">
+                  <p className="text-gray-700 text-xs md:text-sm mb-3 md:mb-4 leading-relaxed">
                     {advisor.bio}
                   </p>
 
                   {/* Education & Experience */}
-                  <div className="flex items-center space-x-4 mb-4 text-xs text-gray-600">
+                  <div className="flex items-center space-x-2 md:space-x-4 mb-3 md:mb-4 text-xs text-gray-600">
                     <div className="flex items-center space-x-1">
                       <GraduationCap className="w-3 h-3" />
-                      <span>{advisor.education}</span>
+                      <span className="text-xs">{advisor.education}</span>
                     </div>
                   </div>
 
                   {/* Achievements */}
-                  <div className="mb-4">
-                    <h4 className="text-sm font-semibold text-gray-800 mb-2">Key Achievements:</h4>
+                  <div className="mb-3 md:mb-4">
+                    <h4 className="text-xs md:text-sm font-semibold text-gray-800 mb-2">Key Achievements:</h4>
                     <div className="space-y-1">
                       {advisor.achievements.map((achievement, achievementIndex) => (
                         <div key={achievementIndex} className="flex items-center space-x-2 text-xs text-gray-600">
-                          <Star className="w-3 h-3 text-yellow-500" />
-                          <span>{achievement}</span>
+                          <Star className="w-3 h-3 text-yellow-500 flex-shrink-0" />
+                          <span className="text-xs">{achievement}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
                   {/* Contact Links */}
-                  <div className="flex space-x-3">
+                  <div className="flex space-x-2 md:space-x-3">
                     <a
                       href={advisor.linkedin}
                       className="flex items-center justify-center w-8 h-8 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors"
@@ -257,10 +258,11 @@ const Board = () => {
                 </div>
               </div>
             ))}
+            </div>
           </div>
 
-          {/* Expertise Areas */}
-          <div className={`
+          {/* Expertise Areas - HIDDEN */}
+          {/* <div className={`
             mb-12 lg:mb-16 transition-all duration-1000 delay-500
             ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
           `}>
@@ -280,24 +282,12 @@ const Board = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
 
         </div>
       </section>
 
-      {/* Coming Soon Section */}
-      <section className="pt-2 pb-16 bg-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
-              Coming Soon!
-            </h2>
-            <p className="text-xl text-gray-600">
-              We're working on exciting new features and services. Stay tuned for updates!
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Coming Soon Section - REMOVED */}
     </div>
   );
 };
