@@ -6,6 +6,7 @@ const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMaintenanceDropdownOpen, setIsMaintenanceDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [solarInstallationOpen, setSolarInstallationOpen] = useState(false);
   const timeoutRef = useRef(null);
   const maintenanceTimeoutRef = useRef(null);
   const location = useLocation();
@@ -99,12 +100,32 @@ const Navbar = () => {
             {isDropdownOpen && (
               <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-50">
                 <div className="py-2">
-                  <Link
-                    to="/solar-installation"
-                    className="block px-4 py-2 text-black hover:text-orange-500 transition-colors text-sm"
-                  >
-                    Solar Installation
-                  </Link>
+                  <div className="relative group">
+                    <div className="flex items-center justify-between px-4 py-2 text-black hover:text-orange-500 transition-colors text-sm cursor-pointer">
+                      <span>Solar Installation</span>
+                      <ChevronDown className="ml-1 w-3 h-3" />
+                    </div>
+                    <div className="absolute left-full top-4 w-40 bg-white rounded-lg border border-gray-200 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                      <Link
+                        to="/residential"
+                        className="block px-4 py-2 text-gray-600 hover:text-orange-500 transition-colors text-sm"
+                      >
+                        Residential
+                      </Link>
+                      <Link
+                        to="/commercial"
+                        className="block px-4 py-2 text-gray-600 hover:text-orange-500 transition-colors text-sm"
+                      >
+                        Commercial
+                      </Link>
+                      <Link
+                        to="/corporate"
+                        className="block px-4 py-2 text-gray-600 hover:text-orange-500 transition-colors text-sm"
+                      >
+                        Corporate
+                      </Link>
+                    </div>
+                  </div>
                   <Link
                     to="/water-management"
                     className="block px-4 py-2 text-black hover:text-orange-500 transition-colors text-sm"
@@ -200,13 +221,44 @@ const Navbar = () => {
             </button>
             {isDropdownOpen && (
               <div className="mt-2 pl-4 space-y-2">
-                <Link
-                  to="/solar-installation"
-                  className="block text-black hover:text-orange-500 transition-colors text-sm sm:text-base"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Solar Installation
-                </Link>
+                <div>
+                  <button
+                    className="flex items-center justify-between w-full text-black hover:text-orange-500 transition-colors text-sm sm:text-base"
+                    onClick={() => setSolarInstallationOpen(!solarInstallationOpen)}
+                  >
+                    Solar Installation
+                    <ChevronDown
+                      className={`ml-2 w-4 h-4 transform transition-transform ${
+                        solarInstallationOpen ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+                  {solarInstallationOpen && (
+                    <div className="mt-2 pl-4 space-y-2">
+                      <Link
+                        to="/residential"
+                        className="block text-gray-600 hover:text-orange-500 transition-colors text-sm sm:text-base"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        Residential
+                      </Link>
+                      <Link
+                        to="/commercial"
+                        className="block text-gray-600 hover:text-orange-500 transition-colors text-sm sm:text-base"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        Commercial
+                      </Link>
+                      <Link
+                        to="/corporate"
+                        className="block text-gray-600 hover:text-orange-500 transition-colors text-sm sm:text-base"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        Corporate
+                      </Link>
+                    </div>
+                  )}
+                </div>
                 <Link
                   to="/water-management"
                   className="block text-black hover:text-orange-500 transition-colors text-sm sm:text-base"

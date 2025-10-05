@@ -120,20 +120,20 @@ const Investments = () => {
             text-center transition-all duration-1000
             ${isHeaderVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
           `}>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gray-800">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
               Investments
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-8">
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-6">
               Grow your wealth while building a sustainable future
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <div className="flex items-center space-x-2 bg-green-100 text-green-600 rounded-full px-6 py-3">
-                <DollarSign className="w-5 h-5" />
-                <span className="font-medium">Assured Returns</span>
+            <div className="flex flex-wrap justify-center gap-3">
+              <div className="flex items-center space-x-2 bg-green-100 text-green-600 rounded-full px-4 py-2">
+                <DollarSign className="w-4 h-4" />
+                <span className="font-medium text-sm">Assured Returns</span>
               </div>
-              <div className="flex items-center space-x-2 bg-orange-100 text-orange-600 rounded-full px-6 py-3">
-                <Leaf className="w-5 h-5" />
-                <span className="font-medium">Eco-Friendly</span>
+              <div className="flex items-center space-x-2 bg-orange-100 text-orange-600 rounded-full px-4 py-2">
+                <Leaf className="w-4 h-4" />
+                <span className="font-medium text-sm">Eco-Friendly</span>
               </div>
             </div>
           </div>
@@ -141,11 +141,11 @@ const Investments = () => {
       </section>
 
       {/* Investment Points Section */}
-      <section ref={sectionRef} className="pt-20 pb-0">
-        <div className="max-w-7xl mx-auto px-6">
+      <section ref={sectionRef} className="bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Investment Points */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-12 lg:mb-16">
             {investmentPoints.map((point, index) => (
               <div
                 key={index}
@@ -167,7 +167,7 @@ const Investments = () => {
 
           {/* Benefits Grid */}
           <div className={`
-            grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 transition-all duration-1000 delay-500
+            grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 transition-all duration-1000 delay-500
             ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
           `}>
             {benefits.map((benefit, index) => (
@@ -186,6 +186,20 @@ const Investments = () => {
             ))}
           </div>
 
+        </div>
+      </section>
+
+      {/* Coming Soon Section */}
+      <section className="pt-2 pb-16 bg-white">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
+              Coming Soon!
+            </h2>
+            <p className="text-xl text-gray-600">
+              We're working on exciting new features and services. Stay tuned for updates!
+            </p>
+          </div>
         </div>
       </section>
 

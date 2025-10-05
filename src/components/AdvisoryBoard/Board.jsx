@@ -150,20 +150,20 @@ const Board = () => {
             text-center transition-all duration-1000
             ${isHeaderVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
           `}>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gray-800">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
               Advisory Board
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-8">
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-6">
               Industry leaders and experts guiding our sustainable energy vision
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <div className="flex items-center space-x-2 bg-green-100 text-green-600 rounded-full px-6 py-3">
-                <Award className="w-5 h-5" />
-                <span className="font-medium">Industry Leaders</span>
+            <div className="flex flex-wrap justify-center gap-3">
+              <div className="flex items-center space-x-2 bg-green-100 text-green-600 rounded-full px-4 py-2">
+                <Award className="w-4 h-4" />
+                <span className="font-medium text-sm">Industry Leaders</span>
               </div>
-              <div className="flex items-center space-x-2 bg-orange-100 text-orange-600 rounded-full px-6 py-3">
-                <Globe className="w-5 h-5" />
-                <span className="font-medium">Global Expertise</span>
+              <div className="flex items-center space-x-2 bg-orange-100 text-orange-600 rounded-full px-4 py-2">
+                <Globe className="w-4 h-4" />
+                <span className="font-medium text-sm">Global Expertise</span>
               </div>
             </div>
           </div>
@@ -171,22 +171,11 @@ const Board = () => {
       </section>
 
       {/* Advisory Board Section */}
-      <section ref={sectionRef} className="pt-20 pb-0">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className={`
-            text-center mb-16 transition-all duration-1000 delay-200
-            ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
-          `}>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Our Advisory Board
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Distinguished experts providing strategic guidance and industry insights
-            </p>
-          </div>
+      <section ref={sectionRef} className="bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Advisory Board Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12 lg:mb-16">
             {advisoryBoard.map((advisor, index) => (
               <div
                 key={index}
@@ -272,11 +261,11 @@ const Board = () => {
 
           {/* Expertise Areas */}
           <div className={`
-            mb-16 transition-all duration-1000 delay-500
+            mb-12 lg:mb-16 transition-all duration-1000 delay-500
             ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
           `}>
-            <h3 className="text-2xl font-bold text-gray-800 text-center mb-8">Expertise Areas</h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            <h3 className="text-2xl font-bold text-gray-800 text-center mb-6 lg:mb-8">Expertise Areas</h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
               {expertiseAreas.map((area, index) => (
                 <div
                   key={index}
@@ -293,6 +282,20 @@ const Board = () => {
             </div>
           </div>
 
+        </div>
+      </section>
+
+      {/* Coming Soon Section */}
+      <section className="pt-2 pb-16 bg-white">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
+              Coming Soon!
+            </h2>
+            <p className="text-xl text-gray-600">
+              We're working on exciting new features and services. Stay tuned for updates!
+            </p>
+          </div>
         </div>
       </section>
     </div>

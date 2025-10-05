@@ -75,12 +75,12 @@ const Store = () => {
   ];
 
   const benefits = [
-    "One-Stop Solution",
-    "Quality Guaranteed",
-    "Competitive Pricing",
-    "Fast Delivery",
-    "Expert Support",
-    "Warranty Protection"
+    "Assured Returns",
+    "Environmental Impact",
+    "Portfolio Diversification",
+    "Expert Curation",
+    "Transparent Reporting",
+    "Risk Management"
   ];
 
   const stats = [
@@ -140,20 +140,20 @@ const Store = () => {
             text-center transition-all duration-1000
             ${isHeaderVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
           `}>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gray-800">
-              Green Store
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
+              Store
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-8">
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-6">
               Your one-stop destination for sustainable technology components
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <div className="flex items-center space-x-2 bg-green-100 text-green-600 rounded-full px-6 py-3">
-                <Package className="w-5 h-5" />
-                <span className="font-medium">1000+ Products</span>
+            <div className="flex flex-wrap justify-center gap-3">
+              <div className="flex items-center space-x-2 bg-green-100 text-green-600 rounded-full px-4 py-2">
+                <Package className="w-4 h-4" />
+                <span className="font-medium text-sm">1000+ Products</span>
               </div>
-              <div className="flex items-center space-x-2 bg-orange-100 text-orange-600 rounded-full px-6 py-3">
-                <Truck className="w-5 h-5" />
-                <span className="font-medium">Fast Delivery</span>
+              <div className="flex items-center space-x-2 bg-orange-100 text-orange-600 rounded-full px-4 py-2">
+                <Truck className="w-4 h-4" />
+                <span className="font-medium text-sm">Fast Delivery</span>
               </div>
             </div>
           </div>
@@ -161,22 +161,11 @@ const Store = () => {
       </section>
 
       {/* Store Points Section */}
-      <section ref={sectionRef} className="pt-20 pb-0">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className={`
-            text-center mb-16 transition-all duration-1000 delay-200
-            ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
-          `}>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Why Choose Our Store?
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Quality products, competitive prices, and exceptional service
-            </p>
-          </div>
+      <section ref={sectionRef} className="bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Store Points */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-12 lg:mb-16">
             {storePoints.map((point, index) => (
               <div
                 key={index}
@@ -195,64 +184,13 @@ const Store = () => {
             ))}
           </div>
 
-          {/* Categories */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            {categories.map((category, index) => (
-              <div
-                key={index}
-                className={`
-                  relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-1000 ease-out p-8 cursor-pointer
-                  ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
-                  ${activeCategory === index ? 'scale-105 shadow-2xl' : 'hover:scale-105'}
-                  ${hoveredProduct === index ? 'ring-4 ring-green-200' : ''}
-                `}
-                style={{ transitionDelay: `${index * 200}ms` }}
-                onMouseEnter={() => {
-                  setHoveredProduct(index);
-                  setActiveCategory(index);
-                }}
-                onMouseLeave={() => setHoveredProduct(null)}
-              >
-                <div className={`
-                  absolute inset-0 rounded-2xl bg-gradient-to-br ${category.color} opacity-5
-                  ${activeCategory === index ? 'opacity-10' : ''}
-                `} />
-                
-                <div className="relative z-10">
-                  <div className={`
-                    w-16 h-16 rounded-full bg-gradient-to-br ${category.color} flex items-center justify-center text-white mb-6 mx-auto
-                    ${activeCategory === index ? 'scale-110' : ''}
-                    transition-transform duration-300
-                  `}>
-                    {category.icon}
-                  </div>
-                  
-                  <h3 className="text-2xl font-bold text-gray-800 mb-4 text-center">
-                    {category.title}
-                  </h3>
-                  
-                  <p className="text-gray-600 text-center mb-4">
-                    {category.description}
-                  </p>
-
-                  <div className="text-center">
-                    <div className="inline-flex items-center space-x-2 bg-gray-100 rounded-full px-4 py-2">
-                      <Package className="w-4 h-4 text-green-600" />
-                      <span className="text-sm font-medium text-gray-700">{category.productCount}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
           {/* Featured Products */}
           <div className={`
-            mb-16 transition-all duration-1000 delay-500
+            mb-12 lg:mb-16 transition-all duration-1000 delay-500
             ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
           `}>
-            <h3 className="text-2xl font-bold text-gray-800 text-center mb-8">Featured Products</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <h3 className="text-2xl font-bold text-gray-800 text-center mb-6 lg:mb-8">Featured Products</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {featuredProducts.map((product, index) => (
                 <div
                   key={index}
@@ -295,7 +233,7 @@ const Store = () => {
 
           {/* Benefits Grid */}
           <div className={`
-            grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 transition-all duration-1000 delay-600
+            grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 transition-all duration-1000 delay-700
             ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
           `}>
             {benefits.map((benefit, index) => (
@@ -314,21 +252,19 @@ const Store = () => {
             ))}
           </div>
 
-          {/* Stats Section */}
-          <div className={`
-            grid grid-cols-2 md:grid-cols-4 gap-8 transition-all duration-1000 delay-700
-            ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
-          `}>
-            {stats.map((stat, index) => (
-              <div
-                key={index}
-                className="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
-                style={{ transitionDelay: `${index * 100}ms` }}
-              >
-                <div className="text-3xl font-bold text-green-600 mb-2">{stat.number}</div>
-                <div className="text-gray-600">{stat.label}</div>
-              </div>
-            ))}
+        </div>
+      </section>
+
+      {/* Coming Soon Section */}
+      <section className="pt-2 pb-16 bg-white">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
+              Coming Soon!
+            </h2>
+            <p className="text-xl text-gray-600">
+              We're working on exciting new features and services. Stay tuned for updates!
+            </p>
           </div>
         </div>
       </section>

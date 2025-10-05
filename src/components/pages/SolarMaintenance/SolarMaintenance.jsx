@@ -88,20 +88,20 @@ const SolarMaintenance = () => {
             text-center transition-all duration-1000
             ${isHeaderVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
           `}>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gray-800">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
               Solar Maintenance
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-8">
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-6">
               Keep your solar investment performing at its best with our comprehensive maintenance solutions
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <div className="flex items-center space-x-2 bg-green-100 text-green-600 rounded-full px-6 py-3">
-                <Star className="w-5 h-5" />
-                <span className="font-medium">Expert Technicians</span>
+            <div className="flex flex-wrap justify-center gap-3">
+              <div className="flex items-center space-x-2 bg-green-100 text-green-600 rounded-full px-4 py-2">
+                <Star className="w-4 h-4" />
+                <span className="font-medium text-sm">Expert Technicians</span>
               </div>
-              <div className="flex items-center space-x-2 bg-orange-100 text-orange-600 rounded-full px-6 py-3">
-                <Clock className="w-5 h-5" />
-                <span className="font-medium">24/7 Monitoring</span>
+              <div className="flex items-center space-x-2 bg-orange-100 text-orange-600 rounded-full px-4 py-2">
+                <Clock className="w-4 h-4" />
+                <span className="font-medium text-sm">24/7 Monitoring</span>
               </div>
             </div>
           </div>
@@ -109,11 +109,10 @@ const SolarMaintenance = () => {
       </section>
 
       {/* Features Section */}
-      <section ref={sectionRef} className="pt-20 pb-0">
-        <div className="max-w-7xl mx-auto px-6">
-
+      <section ref={sectionRef} className="bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Feature Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-12 lg:mb-16">
             {features.map((feature, index) => (
               <div
                 key={index}
@@ -153,7 +152,7 @@ const SolarMaintenance = () => {
 
           {/* Benefits Grid */}
           <div className={`
-            grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-1000 delay-500
+            grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 transition-all duration-1000 delay-500
             ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
           `}>
             {benefits.map((benefit, index) => (
@@ -170,6 +169,20 @@ const SolarMaintenance = () => {
                 <p className="text-lg font-medium text-gray-800">{benefit}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Coming Soon Section */}
+      <section className="pt-2 pb-16 bg-white">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
+              Coming Soon!
+            </h2>
+            <p className="text-xl text-gray-600">
+              We're working on exciting new features and services. Stay tuned for updates!
+            </p>
           </div>
         </div>
       </section>

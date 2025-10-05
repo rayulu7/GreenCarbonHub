@@ -88,7 +88,7 @@ const FooterContent = () => {
         <div className="border-t border-gray-700 mt-12 pt-8">
           <div className="flex flex-col items-center space-y-4">
             <p className="text-gray-500 text-sm text-center">
-              © 2024 <span className="text-orange-500">GreenCarbonHub</span>. All Rights Reserved.
+              © 2025 <span className="text-orange-500">GreenCarbonHub</span>. All Rights Reserved.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="footer-group w-8 h-8 rounded flex items-center justify-center bg-blue-600 transition">
