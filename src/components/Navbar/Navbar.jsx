@@ -4,11 +4,8 @@ import { ChevronDown, Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isMaintenanceDropdownOpen, setIsMaintenanceDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [solarInstallationOpen, setSolarInstallationOpen] = useState(false);
   const timeoutRef = useRef(null);
-  const maintenanceTimeoutRef = useRef(null);
   const location = useLocation();
 
   // Scroll to section function
@@ -19,7 +16,6 @@ const Navbar = () => {
     }
     setIsMobileMenuOpen(false);
     setIsDropdownOpen(false);
-    setIsMaintenanceDropdownOpen(false);
   };
 
   // Handle navigation for different pages
@@ -42,14 +38,6 @@ const Navbar = () => {
     timeoutRef.current = setTimeout(() => setIsDropdownOpen(false), 300);
   };
 
-  const handleMaintenanceMouseEnter = () => {
-    if (maintenanceTimeoutRef.current) clearTimeout(maintenanceTimeoutRef.current);
-    setIsMaintenanceDropdownOpen(true);
-  };
-
-  const handleMaintenanceMouseLeave = () => {
-    maintenanceTimeoutRef.current = setTimeout(() => setIsMaintenanceDropdownOpen(false), 300);
-  };
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen((prev) => !prev);
@@ -59,9 +47,6 @@ const Navbar = () => {
     setIsDropdownOpen((prev) => !prev);
   };
 
-  const toggleMobileMaintenanceDropdown = () => {
-    setIsMaintenanceDropdownOpen((prev) => !prev);
-  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 py-3 md:py-4 bg-white shadow-md">
@@ -101,10 +86,13 @@ const Navbar = () => {
               <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-50">
                 <div className="py-2">
                   <div className="relative group">
-                    <div className="flex items-center justify-between px-4 py-2 text-black hover:text-orange-500 transition-colors text-sm cursor-pointer">
+                    <Link
+                      to="/solar-installation"
+                      className="flex items-center justify-between px-4 py-2 text-black hover:text-orange-500 transition-colors text-sm cursor-pointer"
+                    >
                       <span>Solar Installation</span>
                       <ChevronDown className="ml-1 w-3 h-3" />
-                    </div>
+                    </Link>
                     <div className="absolute left-full top-4 w-40 bg-white rounded-lg border border-gray-200 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                       <Link
                         to="/residential"
@@ -138,29 +126,12 @@ const Navbar = () => {
             )}
           </div>
 
-          {/* Maintenance Dropdown */}
-          {/* <div
-            className="relative"
-            onMouseEnter={handleMaintenanceMouseEnter}
-            onMouseLeave={handleMaintenanceMouseLeave}
+          <button
+            onClick={() => handleNavigation('/', 'solar-maintenance')}
+            className="text-green-600 hover:text-orange-500 transition-colors font-medium text-sm xl:text-base"
           >
-            <button className="flex items-center text-green-600 font-medium bg-transparent focus:outline-none hover:text-orange-500 transition-colors text-sm xl:text-base">
-              Maintenance
-              <ChevronDown className="ml-1 w-4 h-4" />
-            </button>
-            {isMaintenanceDropdownOpen && (
-              <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-50">
-                <div className="py-2">
-                  <button
-                    onClick={() => handleNavigation('/', 'solar-maintenance')}
-                    className="block w-full text-left px-4 py-2 text-black hover:text-orange-500 transition-colors text-sm"
-                  >
-                    Solar Maintenance
-                  </button>
-                </div>
-              </div>
-            )}
-          </div> */}
+            Maintenance
+          </button> 
           <button
             onClick={() => handleNavigation('/', 'investments')}
             className="text-green-600 hover:text-orange-500 transition-colors font-medium text-sm xl:text-base"
@@ -222,42 +193,14 @@ const Navbar = () => {
             {isDropdownOpen && (
               <div className="mt-2 pl-4 space-y-2">
                 <div>
-                  <button
+                  <Link
+                    to="/solar-installation"
                     className="flex items-center justify-between w-full text-black hover:text-orange-500 transition-colors text-sm sm:text-base"
-                    onClick={() => setSolarInstallationOpen(!solarInstallationOpen)}
+                    onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Solar Installation
-                    <ChevronDown
-                      className={`ml-2 w-4 h-4 transform transition-transform ${
-                        solarInstallationOpen ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button>
-                  {solarInstallationOpen && (
-                    <div className="mt-2 pl-4 space-y-2">
-                      <Link
-                        to="/residential"
-                        className="block text-gray-600 hover:text-orange-500 transition-colors text-sm sm:text-base"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        Residential
-                      </Link>
-                      <Link
-                        to="/commercial"
-                        className="block text-gray-600 hover:text-orange-500 transition-colors text-sm sm:text-base"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        Commercial
-                      </Link>
-                      <Link
-                        to="/corporate"
-                        className="block text-gray-600 hover:text-orange-500 transition-colors text-sm sm:text-base"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        Corporate
-                      </Link>
-                    </div>
-                  )}
+                    <ChevronDown className="ml-2 w-4 h-4" />
+                  </Link>
                 </div>
                 <Link
                   to="/water-management"
@@ -270,30 +213,12 @@ const Navbar = () => {
             )}
           </div>
 
-          {/* Mobile Maintenance Dropdown */}
-          <div>
-            <button
-              className="flex items-center justify-between w-full text-green-600 font-medium hover:text-orange-500 transition-colors text-sm sm:text-base"
-              onClick={toggleMobileMaintenanceDropdown}
-            >
-              Maintenance
-              <ChevronDown
-                className={`ml-2 w-4 h-4 transform transition-transform ${
-                  isMaintenanceDropdownOpen ? "rotate-180" : ""
-                }`}
-              />
-            </button>
-            {isMaintenanceDropdownOpen && (
-              <div className="mt-2 pl-4 space-y-2">
-                <button
-                  onClick={() => handleNavigation('/', 'solar-maintenance')}
-                  className="block w-full text-left text-black hover:text-orange-500 transition-colors text-sm sm:text-base"
-                >
-                  Solar Maintenance
-                </button>
-              </div>
-            )}
-          </div>
+          <button
+            onClick={() => handleNavigation('/', 'solar-maintenance')}
+            className="block w-full text-left text-green-600 hover:text-orange-500 transition-colors font-medium text-sm sm:text-base"
+          >
+            Maintenance
+          </button>
           <button
             onClick={() => handleNavigation('/', 'investments')}
             className="block w-full text-left text-green-600 hover:text-orange-500 transition-colors font-medium text-sm sm:text-base"
