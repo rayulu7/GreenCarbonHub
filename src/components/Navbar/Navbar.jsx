@@ -3,7 +3,8 @@ import { Link, useLocation } from "react-router-dom";
 import { ChevronDown, Menu, X } from "lucide-react";
 
 const Navbar = () => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isInstallationDropdownOpen, setIsInstallationDropdownOpen] = useState(false);
+  const [isMaintenanceDropdownOpen, setIsMaintenanceDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const timeoutRef = useRef(null);
   const location = useLocation();
@@ -15,7 +16,8 @@ const Navbar = () => {
       element.scrollIntoView({ behavior: 'smooth' });
     }
     setIsMobileMenuOpen(false);
-    setIsDropdownOpen(false);
+    setIsInstallationDropdownOpen(false);
+    setIsMaintenanceDropdownOpen(false);
   };
 
   // Handle navigation for different pages
@@ -29,13 +31,22 @@ const Navbar = () => {
     }
   };
 
-  const handleMouseEnter = () => {
+  const handleInstallationMouseEnter = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    setIsDropdownOpen(true);
+    setIsInstallationDropdownOpen(true);
   };
 
-  const handleMouseLeave = () => {
-    timeoutRef.current = setTimeout(() => setIsDropdownOpen(false), 300);
+  const handleInstallationMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => setIsInstallationDropdownOpen(false), 300);
+  };
+
+  const handleMaintenanceMouseEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setIsMaintenanceDropdownOpen(true);
+  };
+
+  const handleMaintenanceMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => setIsMaintenanceDropdownOpen(false), 300);
   };
 
 
@@ -43,8 +54,12 @@ const Navbar = () => {
     setIsMobileMenuOpen((prev) => !prev);
   };
 
-  const toggleMobileDropdown = () => {
-    setIsDropdownOpen((prev) => !prev);
+  const toggleMobileInstallationDropdown = () => {
+    setIsInstallationDropdownOpen((prev) => !prev);
+  };
+
+  const toggleMobileMaintenanceDropdown = () => {
+    setIsMaintenanceDropdownOpen((prev) => !prev);
   };
 
 
@@ -59,12 +74,12 @@ const Navbar = () => {
               <span className="text-orange-500">Carbon</span>
               <span className="text-gray-800">Hub</span>
             </h1>
-            <p className="text-xs sm:text-sm text-gray-600 hidden sm:block">Net-Zero Solutions</p>
+            <p className="text-xs sm:text-sm text-gray-600 hidden sm:block">Afortable Solutions</p>
           </div>
         </div>
 
-        {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center space-x-4 xl:space-x-6">
+        {/* Desktop Nav - Centered */}
+        <nav className="hidden lg:flex items-center space-x-4 xl:space-x-6 absolute left-1/2 transform -translate-x-1/2">
           <Link
             to="/"
             className="text-green-600 hover:text-orange-500 transition-colors font-medium text-sm xl:text-base"
@@ -75,14 +90,14 @@ const Navbar = () => {
           {/* Installation Dropdown */}
           <div
             className="relative"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
+            onMouseEnter={handleInstallationMouseEnter}
+            onMouseLeave={handleInstallationMouseLeave}
           >
             <button className="flex items-center text-green-600 font-medium bg-transparent focus:outline-none hover:text-orange-500 transition-colors text-sm xl:text-base">
               Installation
               <ChevronDown className="ml-1 w-4 h-4" />
             </button>
-            {isDropdownOpen && (
+            {isInstallationDropdownOpen && (
               <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-50">
                 <div className="py-2">
                   <div className="relative group">
@@ -126,12 +141,29 @@ const Navbar = () => {
             )}
           </div>
 
-          <button
-            onClick={() => handleNavigation('/', 'solar-maintenance')}
-            className="text-green-600 hover:text-orange-500 transition-colors font-medium text-sm xl:text-base"
+          {/* Maintenance Dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={handleMaintenanceMouseEnter}
+            onMouseLeave={handleMaintenanceMouseLeave}
           >
-            Maintenance
-          </button> 
+            <button className="flex items-center text-green-600 font-medium bg-transparent focus:outline-none hover:text-orange-500 transition-colors text-sm xl:text-base">
+              Maintenance
+              <ChevronDown className="ml-1 w-4 h-4" />
+            </button>
+            {isMaintenanceDropdownOpen && (
+              <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-50">
+                <div className="py-2">
+                  <Link
+                    to="/solar-maintenance"
+                    className="block px-4 py-2 text-black hover:text-orange-500 transition-colors text-sm"
+                  >
+                    Solar Maintenance
+                  </Link>
+                </div>
+              </div>
+            )}
+          </div> 
           <button
             onClick={() => handleNavigation('/', 'investments')}
             className="text-green-600 hover:text-orange-500 transition-colors font-medium text-sm xl:text-base"
@@ -142,9 +174,12 @@ const Navbar = () => {
             onClick={() => handleNavigation('/', 'store')}
             className="text-green-600 hover:text-orange-500 transition-colors font-medium text-sm xl:text-base"
           >
-            Store
+            GCH Store
           </button>
         </nav>
+
+        {/* Spacer for layout balance */}
+        <div className="hidden lg:block w-32"></div>
 
         {/* Login + Mobile Toggle */}
         <div className="flex items-center space-x-2 sm:space-x-4">
@@ -181,16 +216,16 @@ const Navbar = () => {
           <div>
             <button
               className="flex items-center justify-between w-full text-green-600 font-medium hover:text-orange-500 transition-colors text-sm sm:text-base"
-              onClick={toggleMobileDropdown}
+              onClick={toggleMobileInstallationDropdown}
             >
               Installation
               <ChevronDown
                 className={`ml-2 w-4 h-4 transform transition-transform ${
-                  isDropdownOpen ? "rotate-180" : ""
+                  isInstallationDropdownOpen ? "rotate-180" : ""
                 }`}
               />
             </button>
-            {isDropdownOpen && (
+            {isInstallationDropdownOpen && (
               <div className="mt-2 pl-4 space-y-2">
                 <div>
                   <Link
@@ -213,12 +248,31 @@ const Navbar = () => {
             )}
           </div>
 
-          <button
-            onClick={() => handleNavigation('/', 'solar-maintenance')}
-            className="block w-full text-left text-green-600 hover:text-orange-500 transition-colors font-medium text-sm sm:text-base"
-          >
-            Maintenance
-          </button>
+          {/* Mobile Maintenance Dropdown */}
+          <div>
+            <button
+              className="flex items-center justify-between w-full text-green-600 font-medium hover:text-orange-500 transition-colors text-sm sm:text-base"
+              onClick={toggleMobileMaintenanceDropdown}
+            >
+              Maintenance
+              <ChevronDown
+                className={`ml-2 w-4 h-4 transform transition-transform ${
+                  isMaintenanceDropdownOpen ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+            {isMaintenanceDropdownOpen && (
+              <div className="mt-2 pl-4 space-y-2">
+                <Link
+                  to="/solar-maintenance"
+                  className="block text-black hover:text-orange-500 transition-colors text-sm sm:text-base"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Solar Maintenance
+                </Link>
+              </div>
+            )}
+          </div>
           <button
             onClick={() => handleNavigation('/', 'investments')}
             className="block w-full text-left text-green-600 hover:text-orange-500 transition-colors font-medium text-sm sm:text-base"
@@ -229,7 +283,7 @@ const Navbar = () => {
             onClick={() => handleNavigation('/', 'store')}
             className="block w-full text-left text-green-600 hover:text-orange-500 transition-colors font-medium text-sm sm:text-base"
           >
-            Store
+            GCH Store
           </button>
 
           <button className="w-full bg-green-600 hover:bg-green-700 text-white px-4 sm:px-6 py-2 rounded-lg font-medium transition-all duration-300 shadow-md hover:shadow-lg text-sm sm:text-base">
