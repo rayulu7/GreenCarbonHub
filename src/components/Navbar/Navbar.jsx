@@ -139,7 +139,7 @@ const Navbar = () => {
           </div>
 
           {/* Maintenance Dropdown */}
-          <div
+          {/* <div
             className="relative"
             onMouseEnter={handleMaintenanceMouseEnter}
             onMouseLeave={handleMaintenanceMouseLeave}
@@ -160,7 +160,7 @@ const Navbar = () => {
                 </div>
               </div>
             )}
-          </div>
+          </div> */}
           <button
             onClick={() => handleNavigation('/', 'investments')}
             className="text-green-600 hover:text-orange-500 transition-colors font-medium text-sm xl:text-base"
