@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"; // ✅ required import
 const services = [
   "Solar Installation",
   "Water & Waste-water Management",
-  // "Bio-Methanation",
+ 
 ];
 
 // const cities = [
