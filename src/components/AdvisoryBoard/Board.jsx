@@ -11,7 +11,7 @@ const Board = () => {
 
   const advisoryBoard = [
     {
-      name: "Prof. Dr. Pavan Mohit",
+      name: "Prof. Pavan Mohit",
       position: "Chairman - Advisory Board",
       expertise: "Renewable Energy Policy",
       experience: "5+ Years",
