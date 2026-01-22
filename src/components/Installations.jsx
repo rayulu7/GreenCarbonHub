@@ -12,7 +12,7 @@ const cardData = [
     image: './waste_water.jpg',
     title: "Water & Wastewater Management",
     description: "Offering innovative water and wastewater management solutions to ensure efficient usage and sustainable recycling processes.",
-    path: "/water-and-wastewater-management"
+    path: "/water-management"
   },
 
 ];
