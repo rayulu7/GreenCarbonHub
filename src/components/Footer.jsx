@@ -28,8 +28,8 @@ export default function Footer() {
               <li>
                 <h4 className="text-sm font-medium text-gray-300">Solar Installation</h4>
                 <div className="flex flex-col mt-2 space-y-1 text-xs text-gray-400">
-                  <a href="/residential" className="hover:text-green-400 transition-colors">- Solar Installation</a>
-                  <a href="/housing-society" className="hover:text-green-400 transition-colors">- Water and water waste Management</a>
+                  <a href="/solar-installation" className="hover:text-green-400 transition-colors">- Solar Installation</a>
+                  <a href="/water-management" className="hover:text-green-400 transition-colors">- Water and water waste Management</a>
                   {/* <a href="/industrial-commercial" className="hover:text-green-400 transition-colors">Corporate</a> */}
                 </div>
               </li>
