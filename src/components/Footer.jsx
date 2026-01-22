@@ -15,7 +15,7 @@ export default function Footer() {
               </h2>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
-              GreenCarbonHub is promoted by an experienced team with 100+ years of cumulative experience in power and waste water management.Aided by a strong advisory board GreenCarbonHub offers integrated net-zero solutions.
+              GreenCarbonHub is promoted by an experienced team with 75+ years of cumulative experience in power and waste water management.Aided by a strong advisory board GreenCarbonHub offers integrated net-zero solutions.
             </p>
           </div>
 
